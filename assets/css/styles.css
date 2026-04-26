@@ -254,6 +254,23 @@ section {
 .brand-name { display: inline-flex; align-items: baseline; gap: 6px; }
 .brand-name span { color: var(--accent-2); }
 
+.brand-logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-logo-footer {
+  height: 56px;
+}
+
+.brand-footer { margin-bottom: 4px; }
+
+@media (max-width: 720px) {
+  .brand-logo { height: 38px; }
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -583,6 +600,46 @@ section {
   box-shadow: 0 4px 14px -4px var(--accent-glow);
 }
 
+.service-block .benefits {
+  margin-top: 26px;
+  padding: 22px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(280px 140px at 100% 0%, rgba(46, 161, 255, 0.16), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+}
+
+.service-block .benefits h4 {
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  margin-bottom: 12px;
+}
+
+.service-block .benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.service-block .benefits-list li {
+  padding-left: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.service-block .benefits-list li::before { display: none; }
+
+.service-block .benefits-list strong {
+  color: var(--text);
+  font-weight: 600;
+  margin-right: 4px;
+}
+
 /* ----------------- About page ----------------- */
 .pillars {
   display: grid;
@@ -726,7 +783,7 @@ section {
   margin-top: 2px;
 }
 
-/* ----------------- UAE / Enterprise focus ----------------- */
+/* ----------------- Focus section ----------------- */
 .focus {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -748,7 +805,7 @@ section {
 
 .focus .panel svg { width: 100%; height: auto; opacity: 0.85; }
 
-.focus .uae-list {
+.focus .focus-list {
   list-style: none;
   padding: 0;
   margin: 18px 0 0;
@@ -756,13 +813,13 @@ section {
   gap: 10px;
 }
 
-.focus .uae-list li {
+.focus .focus-list li {
   position: relative;
   padding-left: 22px;
   color: var(--text-muted);
 }
 
-.focus .uae-list li::before {
+.focus .focus-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -772,6 +829,177 @@ section {
   border-radius: 50%;
   background: var(--accent-3);
   box-shadow: 0 0 10px var(--accent-3);
+}
+
+/* ----------------- Orb visual (focus panel) ----------------- */
+.orb-panel {
+  padding: 0;
+  min-height: 420px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(600px 380px at 50% 50%, rgba(46, 161, 255, 0.14), transparent 70%),
+    radial-gradient(400px 260px at 20% 80%, rgba(24, 224, 200, 0.10), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.005));
+}
+
+.orb {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.orb-mesh {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.orb-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 320px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(46, 161, 255, 0.45), rgba(24, 224, 200, 0.15) 55%, transparent 75%);
+  filter: blur(8px);
+  animation: orb-pulse 5s ease-in-out infinite;
+}
+
+.orb-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, #fff 0%, var(--accent-2) 25%, var(--accent) 65%, rgba(46, 161, 255, 0) 100%);
+  box-shadow:
+    0 0 60px rgba(46, 161, 255, 0.6),
+    0 0 30px rgba(24, 224, 200, 0.5),
+    inset 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: orb-pulse 4s ease-in-out infinite;
+}
+
+.orb-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  border: 1px solid rgba(46, 161, 255, 0.35);
+  transform-origin: center;
+  animation: orb-spin linear infinite;
+}
+
+.orb-ring::before,
+.orb-ring::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-2);
+  box-shadow: 0 0 12px var(--accent-2);
+}
+
+.orb-ring-1 {
+  width: 220px;
+  height: 220px;
+  margin: -110px 0 0 -110px;
+  animation-duration: 18s;
+  border-color: rgba(46, 161, 255, 0.45);
+}
+.orb-ring-1::before { top: -4px; left: 50%; margin-left: -4px; }
+.orb-ring-1::after  { bottom: -4px; left: 50%; margin-left: -4px; background: var(--accent-3); box-shadow: 0 0 12px var(--accent-3); }
+
+.orb-ring-2 {
+  width: 300px;
+  height: 300px;
+  margin: -150px 0 0 -150px;
+  animation-duration: 26s;
+  animation-direction: reverse;
+  border-color: rgba(24, 224, 200, 0.32);
+  transform: rotate(35deg);
+}
+.orb-ring-2::before { top: 50%; left: -4px; margin-top: -4px; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.orb-ring-2::after  { top: 50%; right: -4px; margin-top: -4px; }
+
+.orb-ring-3 {
+  width: 380px;
+  height: 380px;
+  margin: -190px 0 0 -190px;
+  animation-duration: 36s;
+  border-color: rgba(230, 200, 122, 0.22);
+  transform: rotate(-20deg);
+}
+.orb-ring-3::before { top: 18%; right: 6%; background: var(--accent-3); box-shadow: 0 0 12px var(--accent-3); }
+.orb-ring-3::after  { bottom: 20%; left: 8%; }
+
+.orb-tag {
+  position: absolute;
+  padding: 6px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  background: rgba(10, 15, 44, 0.7);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  animation: orb-float 6s ease-in-out infinite;
+}
+
+.orb-tag-1 { top: 14%; left: 6%; animation-delay: 0s; }
+.orb-tag-2 { top: 18%; right: 6%; animation-delay: 1.2s; }
+.orb-tag-3 { bottom: 18%; left: 10%; animation-delay: 2.4s; }
+.orb-tag-4 { bottom: 14%; right: 8%; animation-delay: 3.6s; }
+
+@keyframes orb-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.orb-ring-2 { animation-name: orb-spin-2; }
+@keyframes orb-spin-2 {
+  from { transform: rotate(35deg); }
+  to   { transform: rotate(-325deg); }
+}
+
+.orb-ring-3 { animation-name: orb-spin-3; }
+@keyframes orb-spin-3 {
+  from { transform: rotate(-20deg); }
+  to   { transform: rotate(340deg); }
+}
+
+@keyframes orb-pulse {
+  0%, 100% { opacity: 0.85; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.06); }
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+@media (max-width: 720px) {
+  .orb { height: 340px; }
+  .orb-ring-3 { width: 300px; height: 300px; margin: -150px 0 0 -150px; }
+  .orb-ring-2 { width: 240px; height: 240px; margin: -120px 0 0 -120px; }
+  .orb-ring-1 { width: 170px; height: 170px; margin: -85px 0 0 -85px; }
+  .orb-core { width: 70px; height: 70px; }
+  .orb-glow { width: 240px; height: 240px; }
+  .orb-tag { font-size: 0.66rem; padding: 5px 10px; }
 }
 
 /* ----------------- CTA banner ----------------- */

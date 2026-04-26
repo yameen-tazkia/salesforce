@@ -1,7 +1,7 @@
 # Tazkia Intelligence — Website
 
-Marketing site for **Tazkia Intelligence**, a UAE-based Salesforce and AI
-consulting firm. Built with vanilla HTML, CSS, and JavaScript — no build step,
+Marketing site for **Tazkia Intelligence**, a Salesforce and AI transformation
+partner. Built with vanilla HTML, CSS, and JavaScript — no build step,
 no framework, no JS dependencies.
 
 ## Project structure
@@ -52,9 +52,10 @@ Install the **Live Server** extension and click *Go Live* from the status bar.
 
 - **Colors / typography**: tweak the CSS custom properties at the top of
   `assets/css/styles.css` (`--accent`, `--accent-2`, `--bg-0`, …).
-- **Brand mark**: the “T” mark is defined inline in the nav (`.brand-mark`)
-  and in the favicon (`<link rel="icon">`). Replace with an SVG logo when
-  available.
+- **Logo**: drop your logo into `assets/img/logo.png` (PNG with transparent
+  background works best on the dark navy theme; ~600px wide is plenty). The
+  nav and footer reference it as `assets/img/logo.png`. If the file is
+  missing, a fallback gradient “T” mark + wordmark is shown automatically.
 - **Contact form**: client-side validation only. Wire `assets/js/main.js`
   (`#contact-form` submit handler) to your preferred backend or form provider
   (e.g. Formspree, HubSpot, Salesforce Web-to-Lead).
