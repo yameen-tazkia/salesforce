@@ -223,7 +223,7 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  height: 72px;
+  height: 80px;
 }
 
 .brand {
@@ -255,20 +255,25 @@ section {
 .brand-name span { color: var(--accent-2); }
 
 .brand-logo {
-  height: 44px;
+  height: 56px;
   width: auto;
   display: block;
   object-fit: contain;
+  /* Soft fade the image's dark padding into the dark navy nav. */
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at center, #000 60%, rgba(0, 0, 0, 0) 100%);
+          mask-image: radial-gradient(ellipse 70% 80% at center, #000 60%, rgba(0, 0, 0, 0) 100%);
 }
 
 .brand-logo-footer {
-  height: 56px;
+  height: 96px;
+  margin-left: -6px;
 }
 
 .brand-footer { margin-bottom: 4px; }
 
 @media (max-width: 720px) {
-  .brand-logo { height: 38px; }
+  .brand-logo { height: 48px; }
+  .brand-logo-footer { height: 80px; }
 }
 
 .nav-links {
@@ -1199,7 +1204,7 @@ section {
   .nav-cta { display: none; }
   .nav-links {
     position: absolute;
-    top: 72px;
+    top: 80px;
     left: 0;
     right: 0;
     flex-direction: column;
