@@ -62,7 +62,20 @@
             </div>
           </aside>
 
-          <form id="contact-form" class="form reveal" novalidate>
+          <form
+            id="contact-form"
+            class="form reveal"
+            action="https://formsubmit.co/info@tazkiaintelligence.com"
+            method="POST"
+            novalidate>
+            <!-- FormSubmit configuration: hidden fields control behaviour. -->
+            <input type="hidden" name="_subject" value="New enquiry from tazkiaintelligence.com" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://tazkiaintelligence.com/contact.html?sent=1" />
+            <!-- Honeypot: bots fill this; humans never see it. -->
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none;" />
+
             <div class="field">
               <label for="name">Full name</label>
               <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
@@ -80,9 +93,10 @@
               <select id="topic" name="topic">
                 <option value="agentforce-service">Agentforce for Service</option>
                 <option value="agentforce-sales">Agentforce for Sales</option>
-                <option value="customer-engagement">AI-Powered Customer Engagement</option>
+                <option value="customer-engagement">AI Customer Engagement, Slack &amp; Marketing</option>
                 <option value="case-management">Intelligent Case Management</option>
-                <option value="sales-automation">Sales Workflow Automation</option>
+                <option value="security-governance">Security, Trust &amp; AI Governance</option>
+                <option value="monitoring">Monitoring, Reporting &amp; Post-Go-Live</option>
                 <option value="strategy">AI Strategy &amp; Adoption</option>
                 <option value="other">Something else</option>
               </select>
@@ -108,7 +122,7 @@
             <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
             <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
           </a>
-          <p style="margin-top:14px;">Salesforce and AI specialists. We design Agentforce-powered systems where intelligent agents and people work side by side to drive efficiency.</p>
+          <p style="margin-top:14px;">An AI-native Salesforce and Agentforce consultancy. We design intelligent systems where AI agents and people work side by side to drive trusted enterprise transformation.</p>
         </div>
         <div>
           <h5>Company</h5>
@@ -123,8 +137,8 @@
           <ul>
             <li><a href="services.html">Agentforce for Service</a></li>
             <li><a href="services.html">Agentforce for Sales</a></li>
-            <li><a href="services.html">Intelligent Case Management</a></li>
-            <li><a href="services.html">AI Strategy &amp; Adoption</a></li>
+            <li><a href="services.html">Security &amp; AI Governance</a></li>
+            <li><a href="services.html">Monitoring &amp; Post-Go-Live</a></li>
           </ul>
         </div>
         <div>
