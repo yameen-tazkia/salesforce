@@ -1680,9 +1680,9 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 28px;
-  width: clamp(300px, 38vw, 500px);
-  height: clamp(300px, 38vw, 500px);
+  margin: 0 auto 24px;
+  width: clamp(360px, 52vw, 680px);
+  height: clamp(360px, 52vw, 680px);
 }
 
 .hero-brand-mark {
@@ -1698,15 +1698,15 @@ section {
 
 .hero-brand-glow {
   position: absolute;
-  inset: -20%;
+  inset: -35%;
   border-radius: 50%;
   background:
-    radial-gradient(closest-side, rgba(46, 161, 255, 0.18) 0%, rgba(46, 161, 255, 0) 70%),
-    radial-gradient(closest-side, rgba(230, 200, 122, 0.08) 0%, rgba(230, 200, 122, 0) 75%);
-  filter: blur(18px);
+    radial-gradient(closest-side, rgba(46, 161, 255, 0.16) 0%, rgba(46, 161, 255, 0) 72%),
+    radial-gradient(closest-side, rgba(230, 200, 122, 0.07) 10%, rgba(230, 200, 122, 0) 78%);
+  filter: blur(28px);
   z-index: 0;
   pointer-events: none;
-  animation: hero-brand-pulse 7s ease-in-out infinite;
+  animation: hero-brand-pulse 8s ease-in-out infinite;
 }
 
 @keyframes hero-brand-pulse {
@@ -1715,7 +1715,7 @@ section {
 }
 
 @media (max-width: 720px) {
-  .hero-brand { width: 300px; height: 300px; margin-bottom: 16px; }
+  .hero-brand { width: 360px; height: 360px; margin-bottom: 16px; }
 }
 
 /* ----------------- Testimonials ----------------- */
@@ -1854,4 +1854,208 @@ section {
 
 @media (max-width: 720px) {
   .platform-coverage { grid-template-columns: 1fr; padding: 28px; gap: 20px; }
+}
+
+/* ----------------- Brand meaning (About) ----------------- */
+.brand-meaning {
+  position: relative;
+}
+
+.brand-meaning-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.meaning-card {
+  position: relative;
+  padding: 36px 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(380px 220px at 100% 0%, rgba(46, 161, 255, 0.08), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  overflow: hidden;
+  transition: border-color 0.35s var(--easing), transform 0.35s var(--easing);
+}
+
+.meaning-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-2) 50%, transparent 100%);
+  opacity: 0.55;
+}
+
+.meaning-card--tazkia::before {
+  background: linear-gradient(90deg, transparent 0%, var(--accent-2) 50%, transparent 100%);
+}
+
+.meaning-card--intelligence::before {
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+}
+
+.meaning-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+}
+
+.meaning-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: rgba(24, 224, 200, 0.10);
+  border: 1px solid rgba(24, 224, 200, 0.30);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.meaning-card--intelligence .meaning-tag {
+  color: var(--accent);
+  background: rgba(46, 161, 255, 0.10);
+  border-color: rgba(46, 161, 255, 0.30);
+}
+
+.meaning-tag-script {
+  font-family: "Amiri", "Scheherazade New", "Geeza Pro", "Noto Naskh Arabic", serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--accent-3);
+}
+
+.meaning-card h3 {
+  font-size: 1.3rem;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.meaning-card p {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  margin-bottom: 14px;
+}
+
+.meaning-card p:last-child { margin-bottom: 0; }
+
+.meaning-pivot {
+  padding-left: 16px;
+  border-left: 2px solid rgba(230, 200, 122, 0.45);
+  color: var(--text);
+  font-style: italic;
+}
+
+.meaning-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.meaning-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.meaning-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px rgba(46, 161, 255, 0.55);
+}
+
+.meaning-list strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Synthesis card (combined meaning) */
+.meaning-synthesis {
+  position: relative;
+  padding: 44px 40px;
+  border: 1px solid rgba(230, 200, 122, 0.30);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(520px 280px at 100% 0%, rgba(46, 161, 255, 0.10), transparent 70%),
+    radial-gradient(420px 240px at 0% 100%, rgba(230, 200, 122, 0.12), transparent 70%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  overflow: hidden;
+}
+
+.meaning-synthesis::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-3) 25%, var(--accent) 50%, var(--accent-3) 75%, transparent 100%);
+}
+
+.meaning-tag--featured {
+  color: var(--accent-3);
+  background: rgba(230, 200, 122, 0.10);
+  border-color: rgba(230, 200, 122, 0.40);
+}
+
+.meaning-synthesis h3 {
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.meaning-synthesis p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.meaning-synthesis p:last-of-type { margin-bottom: 22px; }
+
+.meaning-themes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.meaning-themes span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+}
+
+@media (max-width: 880px) {
+  .brand-meaning-grid { grid-template-columns: 1fr; }
+  .meaning-card { padding: 28px 24px; }
+  .meaning-synthesis { padding: 32px 24px; }
+  .meaning-synthesis h3 { font-size: 1.35rem; }
 }
