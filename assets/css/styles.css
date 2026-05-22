@@ -281,12 +281,15 @@ section {
   width: auto;
   display: block;
   object-fit: contain;
-  /* Soft fade the image's dark padding into the dark navy nav. */
-  -webkit-mask-image: radial-gradient(ellipse 78% 82% at center, #000 64%, rgba(0, 0, 0, 0) 100%);
-          mask-image: radial-gradient(ellipse 78% 82% at center, #000 64%, rgba(0, 0, 0, 0) 100%);
-  filter: drop-shadow(0 8px 18px rgba(46, 161, 255, 0.20));
+  /* Blend the logo PNG's dark navy backing into the page so no rectangular
+     edge is visible. `lighten` keeps the brighter brain + wordmark pixels
+     and lets the dark padding fall away against the dark navy theme. */
+  mix-blend-mode: lighten;
+  /* A gentle elliptical mask softens the very edges as a safety net. */
+  -webkit-mask-image: radial-gradient(ellipse 96% 90% at center, #000 72%, rgba(0, 0, 0, 0) 100%);
+          mask-image: radial-gradient(ellipse 96% 90% at center, #000 72%, rgba(0, 0, 0, 0) 100%);
   transition: transform 0.25s var(--easing);
-  margin-left: -10px; /* pull the masked padding back so the brain sits aligned with the container edge */
+  margin-left: -10px;
 }
 
 .brand:hover .brand-logo { transform: scale(1.03); }
@@ -294,6 +297,8 @@ section {
 .brand-logo-footer {
   height: 140px;
   margin-left: -16px;
+  /* Blend the navy backing into the dark footer too. */
+  mix-blend-mode: lighten;
 }
 
 .brand-footer { margin-bottom: 8px; display: inline-flex; }
@@ -1697,22 +1702,23 @@ section {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter:
-    drop-shadow(0 24px 60px rgba(46, 161, 255, 0.28))
-    drop-shadow(0 6px 16px rgba(230, 200, 122, 0.18));
-  /* Soft fade for the image's solid navy background. */
-  -webkit-mask-image: radial-gradient(circle, #000 58%, rgba(0, 0, 0, 0) 78%);
-          mask-image: radial-gradient(circle, #000 58%, rgba(0, 0, 0, 0) 78%);
+  /* Blend the logo PNG's dark navy backing into the dark page background so
+     no rectangular outline of the image is visible. */
+  mix-blend-mode: lighten;
+  /* A very gentle circular mask handles edge cases where the image's bg
+     shade isn't pixel-identical to the page. */
+  -webkit-mask-image: radial-gradient(circle, #000 62%, rgba(0, 0, 0, 0) 86%);
+          mask-image: radial-gradient(circle, #000 62%, rgba(0, 0, 0, 0) 86%);
 }
 
 .hero-brand-glow {
   position: absolute;
-  inset: -10%;
+  inset: -20%;
   border-radius: 50%;
   background:
-    radial-gradient(closest-side, rgba(46, 161, 255, 0.25) 0%, rgba(46, 161, 255, 0) 65%),
-    radial-gradient(closest-side, rgba(230, 200, 122, 0.10) 0%, rgba(230, 200, 122, 0) 70%);
-  filter: blur(10px);
+    radial-gradient(closest-side, rgba(46, 161, 255, 0.18) 0%, rgba(46, 161, 255, 0) 70%),
+    radial-gradient(closest-side, rgba(230, 200, 122, 0.08) 0%, rgba(230, 200, 122, 0) 75%);
+  filter: blur(18px);
   z-index: 0;
   pointer-events: none;
   animation: hero-brand-pulse 7s ease-in-out infinite;
