@@ -294,11 +294,6 @@ section {
 .footer-brand .brand-footer { margin-bottom: 10px; }
 .footer-brand p { margin-top: 6px !important; }
 
-@media (max-width: 720px) {
-  .brand-logo { height: 84px; }
-  .brand-logo-footer { height: 140px; }
-}
-
 .nav-links {
   display: flex;
   align-items: center;
@@ -1630,16 +1625,19 @@ section {
 }
 
 @media (max-width: 720px) {
+  /* --- Nav: compact mobile header --- */
+  .nav-inner { height: 72px; gap: 14px; }
+  .brand-logo { height: 50px; }
   .nav-toggle { display: inline-flex; }
   .nav-cta { display: none; }
   .nav-links {
     position: absolute;
-    top: 140px;
+    top: 72px;
     left: 0;
     right: 0;
     flex-direction: column;
     align-items: stretch;
-    background: rgba(6, 10, 31, 0.95);
+    background: rgba(6, 10, 31, 0.96);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
     padding: 16px;
@@ -1649,13 +1647,21 @@ section {
     visibility: hidden;
     transition: opacity 0.25s var(--easing), transform 0.25s var(--easing);
   }
-  .nav-links a { padding: 14px 16px; font-size: 1rem; }
+  .nav-links a {
+    padding: 16px 18px;
+    font-size: 1.02rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
   .nav-links a.active::after { display: none; }
   .nav-open .nav-links {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
+
+  /* --- Hero adjustments --- */
   .hero-meta { grid-template-columns: 1fr; }
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
   .values { grid-template-columns: 1fr; }
@@ -1716,10 +1722,6 @@ section {
 @keyframes hero-brand-pulse {
   0%, 100% { opacity: 0.85; transform: scale(1); }
   50%      { opacity: 1;    transform: scale(1.04); }
-}
-
-@media (max-width: 720px) {
-  .hero-brand { width: 360px; height: 360px; margin-bottom: 16px; }
 }
 
 /* ----------------- Testimonials ----------------- */
@@ -2294,4 +2296,103 @@ section {
   .credentials-grid { grid-template-columns: 1fr; }
   .credential-card { padding: 22px 20px; }
   .credential-number { font-size: 1.7rem; }
+}
+
+/* ----------------- Mobile polish (tablets + phones) ----------------- */
+@media (max-width: 720px) {
+  /* Tighten section padding so each block feels compact on small screens. */
+  section { padding: clamp(48px, 7vw, 72px) 0; }
+
+  /* Tighter container gutters on phones; keeps content closer to edges. */
+  .container { padding: 0 20px; }
+
+  /* Hero headline: smaller minimum so it doesn't dominate the screen. */
+  .hero h1 { font-size: clamp(1.95rem, 8vw, 2.6rem); }
+  .hero p.lead { font-size: clamp(1rem, 4vw, 1.1rem); margin-bottom: 28px; }
+  .hero-meta { margin-top: 28px; gap: 12px; }
+  .hero-meta .stat { padding: 14px 12px; }
+  .hero-actions { gap: 10px; }
+  .hero-actions .btn { width: 100%; max-width: 320px; }
+
+  /* Centrepiece logo: keep proportions sensible on phones. */
+  .hero-brand {
+    width: clamp(280px, 70vw, 360px);
+    height: clamp(280px, 70vw, 360px);
+    margin: clamp(-80px, -18vw, -40px) auto clamp(-60px, -14vw, -28px);
+  }
+
+  /* Page hero (interior pages) tighter spacing. */
+  .page-hero { padding: clamp(40px, 6vw, 64px) 0 clamp(24px, 4vw, 40px); }
+  .page-hero h1 { font-size: clamp(1.85rem, 8vw, 2.4rem); }
+
+  /* Buttons: comfortable touch targets and tighter padding. */
+  .btn { min-height: 48px; padding: 12px 22px; }
+
+  /* Forms: 16px font on inputs prevents iOS Safari from zooming on focus. */
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 16px;
+    padding: 14px 14px;
+  }
+  .field label { font-size: 0.92rem; }
+  .field { margin-bottom: 16px; }
+  .form { padding: 20px; }
+
+  /* Footer: smaller logo, tighter rhythm. */
+  .brand-logo-footer { height: 96px; }
+  .footer { margin-top: 36px; padding: 48px 0 24px; }
+  .footer-grid { margin-bottom: 28px; }
+
+  /* Cards and content tighten up. */
+  .card { padding: 22px; }
+  .card h3 { font-size: 1.08rem; }
+  .section-head { margin-bottom: 36px; }
+  .section-head p { font-size: 0.98rem; }
+
+  /* Service blocks: stack and tighten. */
+  .service-block { padding: 28px 0; gap: 16px; }
+  .service-block h3 { font-size: 1.25rem; }
+
+  /* Brand-meaning cards already stack; compact a touch. */
+  .meaning-card h3 { font-size: 1.15rem; }
+  .meaning-list li { font-size: 0.92rem; }
+  .meaning-synthesis h3 { font-size: 1.25rem; }
+  .meaning-themes { gap: 8px; }
+  .meaning-themes span { font-size: 0.78rem; padding: 7px 11px; }
+
+  /* CTA banner sits closer to edges. */
+  .cta-banner { padding: 36px 24px; }
+  .cta-banner h2 { font-size: 1.45rem; }
+
+  /* Pills/chips: ensure they don't blow out. */
+  .cloud-chip { font-size: 0.78rem; padding: 8px 14px; }
+
+  /* Outcome pills and testimonials breathe. */
+  .outcome-pill strong { font-size: 1.2rem; }
+  .testimonial blockquote { font-size: 0.98rem; }
+
+  /* Cloud orchestration nodes: shrink labels slightly on narrow phones. */
+  .cloud-node .cloud-label { font-size: 0.7rem; }
+}
+
+/* Even smaller phones (iPhone SE, small Androids). */
+@media (max-width: 420px) {
+  .container { padding: 0 16px; }
+  .nav-inner { gap: 10px; }
+  .brand-logo { height: 44px; }
+  .nav-links { top: 64px; }
+  .nav-inner { height: 64px; }
+  .hero-brand {
+    width: clamp(240px, 78vw, 300px);
+    height: clamp(240px, 78vw, 300px);
+  }
+  .hero h1 { font-size: 1.9rem; }
+  .section-head { margin-bottom: 28px; }
+  .credential-number { font-size: 1.55rem; }
+  .credential-card { padding: 20px 18px; }
+  .meaning-card { padding: 24px 20px; }
+  .meaning-synthesis { padding: 28px 22px; }
+  .cta-banner { padding: 28px 18px; }
+  .cta-banner h2 { font-size: 1.3rem; }
 }
