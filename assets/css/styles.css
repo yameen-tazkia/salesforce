@@ -327,37 +327,95 @@ section {
 
 .nav-cta { margin-left: 8px; padding: 10px 18px; font-size: 0.9rem; }
 
+/* Premium hamburger toggle: glassy square with a subtle gradient ring
+   on hover, asymmetric lines (bottom slightly shorter) for a refined
+   modern feel, smooth morph to X when the menu opens. */
 .nav-toggle {
   display: none;
-  width: 42px;
-  height: 42px;
+  position: relative;
+  width: 46px;
+  height: 46px;
   border: 1px solid var(--border-strong);
-  background: var(--surface);
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  border-radius: 12px;
   color: var(--text);
   cursor: pointer;
   align-items: center;
   justify-content: center;
+  transition:
+    border-color 0.25s var(--easing),
+    background 0.25s var(--easing),
+    transform 0.25s var(--easing),
+    box-shadow 0.25s var(--easing);
 }
 
+/* Soft blue/gold gradient ring that fades in on hover/focus. */
+.nav-toggle::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg,
+    rgba(46, 161, 255, 0.55) 0%,
+    rgba(24, 224, 200, 0.10) 45%,
+    rgba(230, 200, 122, 0.45) 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s var(--easing);
+  pointer-events: none;
+}
+
+.nav-toggle:hover,
+.nav-toggle:focus-visible {
+  background: rgba(46, 161, 255, 0.10);
+  border-color: transparent;
+  box-shadow: 0 8px 22px -10px var(--accent-glow);
+}
+.nav-toggle:hover::before,
+.nav-toggle:focus-visible::before { opacity: 1; }
+
+.nav-toggle:active { transform: translateY(1px); }
+
+/* Hamburger lines: three thin bars with the bottom slightly shorter
+   for an asymmetric, considered look. */
 .nav-toggle span,
 .nav-toggle span::before,
 .nav-toggle span::after {
   content: "";
   display: block;
-  width: 18px;
-  height: 2px;
+  height: 1.6px;
   background: currentColor;
   border-radius: 2px;
-  position: relative;
-  transition: transform 0.25s var(--easing), opacity 0.25s var(--easing);
+  transition:
+    transform 0.32s var(--easing),
+    opacity 0.22s var(--easing),
+    width 0.32s var(--easing),
+    background 0.22s var(--easing);
 }
-.nav-toggle span::before { position: absolute; top: -6px; }
-.nav-toggle span::after  { position: absolute; top:  6px; }
+.nav-toggle span { width: 20px; position: relative; }
+.nav-toggle span::before { width: 20px; position: absolute; left: 0; top: -7px; }
+.nav-toggle span::after  { width: 13px; position: absolute; left: 0; top:  7px; }
 
+/* On hover, the short bottom line extends and the colour shifts to
+   the brand teal. Subtle but feels intentional. */
+.nav-toggle:hover span,
+.nav-toggle:hover span::before,
+.nav-toggle:hover span::after,
+.nav-toggle:focus-visible span,
+.nav-toggle:focus-visible span::before,
+.nav-toggle:focus-visible span::after { background: var(--accent-2); }
+.nav-toggle:hover span::after,
+.nav-toggle:focus-visible span::after { width: 20px; }
+
+/* Open state: clean morph to a balanced X. */
 .nav-open .nav-toggle span { background: transparent; }
-.nav-open .nav-toggle span::before { transform: translateY(6px) rotate(45deg); }
-.nav-open .nav-toggle span::after  { transform: translateY(-6px) rotate(-45deg); }
+.nav-open .nav-toggle span::before { transform: translateY(7px) rotate(45deg); width: 20px; }
+.nav-open .nav-toggle span::after  { transform: translateY(-7px) rotate(-45deg); width: 20px; }
 
 /* ----------------- Hero ----------------- */
 .hero {
