@@ -18,19 +18,33 @@
   // --- Mobile nav toggle ---
   const toggle = document.querySelector('.nav-toggle');
   const navWrapper = document.querySelector('.nav');
+  const setMenuOpen = (open) => {
+    if (!navWrapper || !toggle) return;
+    navWrapper.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    // Lock page scroll behind the full-screen overlay.
+    document.documentElement.classList.toggle('nav-locked', open);
+  };
   if (toggle && navWrapper) {
     toggle.addEventListener('click', () => {
-      navWrapper.classList.toggle('nav-open');
-      const expanded = navWrapper.classList.contains('nav-open');
-      toggle.setAttribute('aria-expanded', String(expanded));
+      const open = !navWrapper.classList.contains('nav-open');
+      setMenuOpen(open);
     });
-    // Close menu on link click (mobile)
+    // Close menu when any link inside it is clicked.
     document.querySelectorAll('.nav-links a').forEach((a) => {
-      a.addEventListener('click', () => {
-        navWrapper.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      });
+      a.addEventListener('click', () => setMenuOpen(false));
     });
+    // Close menu on Escape.
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navWrapper.classList.contains('nav-open')) {
+        setMenuOpen(false);
+      }
+    });
+    // Close menu if viewport grows past the mobile breakpoint.
+    const mq = window.matchMedia('(min-width: 721px)');
+    const onMq = (e) => { if (e.matches) setMenuOpen(false); };
+    if (mq.addEventListener) mq.addEventListener('change', onMq);
+    else mq.addListener(onMq);
   }
 
   // --- Mark active nav link based on path ---
