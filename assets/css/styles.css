@@ -1628,178 +1628,40 @@ section {
   /* --- Nav: compact mobile header --- */
   .nav-inner { height: 72px; gap: 14px; }
   .brand-logo { height: 50px; }
-  .nav-toggle { display: inline-flex; position: relative; z-index: 102; }
+  .nav-toggle { display: inline-flex; }
   .nav-cta { display: none; }
-
-  /* The mobile nav is a full-screen overlay so it feels premium and
-     intentional, not a basic dropdown. The site nav bar (z:100) stays
-     visible above it; the menu fills everything below. */
   .nav-links {
-    position: fixed;
-    top: 0;
+    position: absolute;
+    top: 72px;
     left: 0;
     right: 0;
-    bottom: 0;
     flex-direction: column;
     align-items: stretch;
-    justify-content: flex-start;
-    background:
-      radial-gradient(640px 420px at 50% 18%, rgba(46, 161, 255, 0.16), transparent 70%),
-      radial-gradient(520px 360px at 50% 90%, rgba(230, 200, 122, 0.10), transparent 70%),
-      radial-gradient(420px 280px at 12% 60%, rgba(24, 224, 200, 0.08), transparent 70%),
-      linear-gradient(180deg, rgba(6, 10, 31, 0.985), rgba(10, 15, 44, 0.99));
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    padding: 96px 28px 36px;
-    gap: 0;
+    background: rgba(6, 10, 31, 0.96);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px;
+    gap: 4px;
+    transform: translateY(-12px);
     opacity: 0;
     visibility: hidden;
-    transform: none;
-    transition: opacity 0.4s var(--easing), visibility 0.4s var(--easing);
-    z-index: 99;
-    overflow-y: auto;
+    transition: opacity 0.25s var(--easing), transform 0.25s var(--easing);
   }
-  /* Faint gold streak across the top, just below the nav bar. */
-  .nav-links::before {
-    content: "";
-    position: absolute;
-    left: 12%;
-    right: 12%;
-    top: 86px;
-    height: 1px;
-    background: linear-gradient(90deg, transparent 0%, rgba(230, 200, 122, 0.55) 50%, transparent 100%);
-    pointer-events: none;
+  .nav-links a {
+    padding: 16px 18px;
+    font-size: 1.02rem;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
   }
+  .nav-links a.active::after { display: none; }
   .nav-open .nav-links {
     opacity: 1;
     visibility: visible;
+    transform: translateY(0);
   }
 
-  /* Primary menu items: large, single-row with a subtle divider and
-     an arrow indicator that animates on hover/focus. */
-  .nav-links li { list-style: none; }
-  .nav-links li:first-child a { border-top: 1px solid rgba(255, 255, 255, 0.06); }
-
-  .nav-links a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px 4px;
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    color: var(--text);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    background: transparent;
-    border-radius: 0;
-    min-height: 0;
-    opacity: 0;
-    transform: translateY(16px);
-    transition:
-      opacity 0.45s var(--easing),
-      transform 0.45s var(--easing),
-      color 0.25s var(--easing);
-  }
-
-  .nav-links a::after {
-    content: "→";
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--text-dim);
-    transition: transform 0.25s var(--easing), color 0.25s var(--easing);
-  }
-  .nav-links a:hover,
-  .nav-links a:focus { color: var(--accent-2); background: transparent; }
-  .nav-links a:hover::after,
-  .nav-links a:focus::after { color: var(--accent-2); transform: translateX(5px); }
-
-  /* Active page: gold dot prefix and brand-text colour. */
-  .nav-links a.active { color: var(--text); }
-  .nav-links a.active::before {
-    content: "";
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-3);
-    box-shadow: 0 0 10px var(--accent-3);
-    margin-right: 14px;
-    flex-shrink: 0;
-  }
-
-  /* Staggered reveal of items when the menu opens. */
-  .nav-open .nav-links a { opacity: 1; transform: translateY(0); }
-  .nav-open .nav-links li:nth-child(1) a { transition-delay: 0.08s; }
-  .nav-open .nav-links li:nth-child(2) a { transition-delay: 0.16s; }
-  .nav-open .nav-links li:nth-child(3) a { transition-delay: 0.24s; }
-  .nav-open .nav-links li:nth-child(4) a { transition-delay: 0.34s; }
-  .nav-open .nav-links li:nth-child(5) a,
-  .nav-open .nav-links li:nth-child(5) > * { transition-delay: 0.42s; }
-
-  /* Mobile-only items shown inside the drawer. */
-  .nav-mobile-only { display: block; }
-
-  /* CTA button at the bottom of the menu. */
-  .nav-mobile-cta { margin-top: 36px; }
-  .nav-mobile-cta a {
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 1.05rem;
-    border-radius: 999px;
-    border: none;
-    color: #001428;
-    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
-    box-shadow:
-      0 14px 32px -12px var(--accent-glow),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4),
-      inset 0 -1px 0 rgba(230, 200, 122, 0.25);
-    justify-content: center;
-    min-height: 52px;
-  }
-  .nav-mobile-cta a::after { color: #001428; transform: none; }
-  .nav-mobile-cta a:hover,
-  .nav-mobile-cta a:focus { color: #001428; }
-  .nav-mobile-cta a:hover::after,
-  .nav-mobile-cta a:focus::after { color: #001428; transform: translateX(4px); }
-
-  /* Email contact block, sits below the CTA with a subtle label. */
-  .nav-mobile-meta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    margin-top: 22px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.45s var(--easing) 0.50s, transform 0.45s var(--easing) 0.50s;
-  }
-  .nav-open .nav-mobile-meta { opacity: 1; transform: translateY(0); }
-  .nav-mobile-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--text-dim);
-  }
-  .nav-mobile-meta a {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--accent-2);
-    padding: 6px 0;
-    border: none;
-    justify-content: center;
-    min-height: 0;
-    background: transparent;
-    /* The arrow rule applies to <a> globally; suppress for this one. */
-  }
-  .nav-mobile-meta a::after { content: none; }
-
-  /* Lock body scroll when menu is open. JS toggles .nav-locked on <html>. */
-  html.nav-locked,
-  html.nav-locked body { overflow: hidden; }
-
-  /* --- Existing hero / grid adjustments --- */
+  /* --- Hero adjustments --- */
   .hero-meta { grid-template-columns: 1fr; }
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
   .values { grid-template-columns: 1fr; }
@@ -1808,9 +1670,6 @@ section {
   .footer-bottom { flex-direction: column; gap: 10px; }
   .form { padding: 22px; }
 }
-
-/* Mobile-only items are hidden on desktop. */
-.nav-mobile-only { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
