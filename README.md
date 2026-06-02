@@ -1,9 +1,9 @@
 # Tazkia Intelligence - Website
 
-Marketing site for **Tazkia Intelligence**, a Salesforce and AI consultancy
-designing Agentforce-powered systems where intelligent agents and people work
-side by side. Built with vanilla HTML, CSS, and JavaScript - no build step,
-no framework, no JS dependencies.
+Marketing site for **Tazkia Intelligence**, an AI-native partner for
+Salesforce and Agentforce transformation, designing intelligent systems
+where AI agents and people work side by side. Built with vanilla HTML,
+CSS, and JavaScript - no build step, no framework, no JS dependencies.
 
 ## Project structure
 
