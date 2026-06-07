@@ -77,7 +77,7 @@
 
     // Auto-show success when redirected back from FormSubmit (?sent=1).
     if (location.search.indexOf('sent=1') !== -1) {
-      setStatus('Thank you. Your message has reached us and we will be in touch within one business day.', 'success');
+      setStatus('Thank you. Your message has reached us, and we will be in touch as soon as we can.', 'success');
     }
 
     form.addEventListener('submit', (e) => {
@@ -128,7 +128,7 @@
           return res.json();
         })
         .then(() => {
-          setStatus('Thank you, ' + name + '. Your message has reached us and we will be in touch within one business day.', 'success');
+          setStatus('Thank you, ' + name + '. Your message has reached us, and we will be in touch as soon as we can.', 'success');
           form.reset();
         })
         .catch(() => {
