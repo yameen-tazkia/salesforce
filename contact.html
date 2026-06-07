@@ -76,7 +76,9 @@
             <input type="hidden" name="_subject" value="New enquiry from tazkiaintelligence.com" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://tazkiaintelligence.com/contact.html?sent=1" />
+            <!-- _next is set by JS at runtime so it always uses the
+                 current site origin (works on every deployment URL). -->
+            <input type="hidden" name="_next" value="" />
             <!-- Honeypot: bots fill this; humans never see it. -->
             <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none;" />
 

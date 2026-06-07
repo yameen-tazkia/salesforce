@@ -67,6 +67,16 @@
     const status = form.querySelector('.form-status');
     const submitBtn = form.querySelector('button[type="submit"]');
 
+    // The _next hidden field tells FormSubmit where to redirect after a
+    // native (non-AJAX) submit. Setting it dynamically here means it
+    // always uses the current site's origin, so the redirect lands on
+    // a valid HTTPS page regardless of whether we're on the production
+    // domain, a Netlify preview URL, or localhost.
+    const nextField = form.querySelector('input[name="_next"]');
+    if (nextField) {
+      nextField.value = location.origin + location.pathname + '?sent=1';
+    }
+
     const setStatus = (msg, kind) => {
       if (!status) return;
       status.textContent = msg;
