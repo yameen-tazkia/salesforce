@@ -40,11 +40,11 @@
       <div class="container">
         <span class="eyebrow">Contact</span>
         <h1>Let's build your <span class="gradient-text">Agentforce</span> advantage</h1>
-        <p>Tell us where intelligent agents and your team should collaborate first. We will be in touch as soon as we can to schedule a discovery call.</p>
+        <p>Tell us where intelligent agents and your team should collaborate first. We typically reply within one business day to schedule a discovery call.</p>
       </div>
     </section>
 
-    <section style="padding-top: 0;">
+    <section class="contact-section">
       <div class="container">
         <div class="contact-grid">
           <aside class="contact-info reveal">
@@ -59,7 +59,7 @@
             <div class="info-card">
               <h4>What to expect</h4>
               <ul style="list-style:none;padding:0;margin:0;display:grid;gap:8px;">
-                <li class="muted">- A reply as soon as we can</li>
+                <li class="muted">- Reply within one business day</li>
                 <li class="muted">- 30-minute discovery call</li>
                 <li class="muted">- Tailored next-step proposal</li>
               </ul>
@@ -69,18 +69,15 @@
           <form
             id="contact-form"
             class="form reveal"
-            action="https://formsubmit.co/info@tazkiaintelligence.com"
+            action="https://api.web3forms.com/submit"
             method="POST"
             novalidate>
-            <!-- FormSubmit configuration: hidden fields control behaviour. -->
-            <input type="hidden" name="_subject" value="New enquiry from tazkiaintelligence.com" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <!-- _next is set by JS at runtime so it always uses the
-                 current site origin (works on every deployment URL). -->
-            <input type="hidden" name="_next" value="" />
-            <!-- Honeypot: bots fill this; humans never see it. -->
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none;" />
+            <!-- Web3Forms configuration -->
+            <input type="hidden" name="access_key" value="d67d4ce4-a2c2-48f4-9112-14381c904af7" />
+            <input type="hidden" name="subject" value="New enquiry from tazkiaintelligence.com" />
+            <input type="hidden" name="from_name" value="Tazkia Intelligence Website" />
+            <!-- Honeypot: bots tick this; humans never see it. -->
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none;" />
 
             <div class="field">
               <label for="name">Full name</label>

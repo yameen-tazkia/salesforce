@@ -2980,3 +2980,11 @@ section {
   .console-metric span { font-size: 0.64rem; }
   .console-sub { display: none; } /* tidies the header on narrow phones */
 }
+
+/* ----------------- Contact page section spacing ----------------- */
+/* Give the contact-info cards and form clear breathing room from the
+   page hero above, so card borders never look like they're touching
+   the hero band. Scales down on phones. */
+.contact-section {
+  padding-top: clamp(40px, 6vw, 72px);
+}

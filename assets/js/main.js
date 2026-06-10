@@ -58,24 +58,14 @@
     revealEls.forEach((el) => el.classList.add('is-visible'));
   }
 
-  // --- Contact form: validate, then submit via FormSubmit AJAX ---
-  // The form's `action` attribute (https://formsubmit.co/<email>) is used as
-  // the destination. We POST to the matching AJAX endpoint so the user stays
-  // on the page; if anything fails we fall back to a native form submit.
+  // --- Contact form: validate, then submit via Web3Forms AJAX ---
+  // We POST a JSON payload to Web3Forms' submit API so the user stays on
+  // the page. Submissions are delivered to the inbox associated with the
+  // access_key hidden field.
   const form = document.querySelector('#contact-form');
   if (form) {
     const status = form.querySelector('.form-status');
     const submitBtn = form.querySelector('button[type="submit"]');
-
-    // The _next hidden field tells FormSubmit where to redirect after a
-    // native (non-AJAX) submit. Setting it dynamically here means it
-    // always uses the current site's origin, so the redirect lands on
-    // a valid HTTPS page regardless of whether we're on the production
-    // domain, a Netlify preview URL, or localhost.
-    const nextField = form.querySelector('input[name="_next"]');
-    if (nextField) {
-      nextField.value = location.origin + location.pathname + '?sent=1';
-    }
 
     const setStatus = (msg, kind) => {
       if (!status) return;
@@ -84,11 +74,6 @@
       status.classList.add('visible');
       if (kind) status.classList.add('is-' + kind);
     };
-
-    // Auto-show success when redirected back from FormSubmit (?sent=1).
-    if (location.search.indexOf('sent=1') !== -1) {
-      setStatus('Thank you. Your message has reached us, and we will be in touch as soon as we can.', 'success');
-    }
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -106,16 +91,12 @@
         setStatus('Please enter a valid email address.', 'error');
         return;
       }
-      // Honeypot: silently drop bot submissions.
-      if ((data.get('_honey') || '').toString().trim()) {
+      // Honeypot: bots tick the hidden checkbox; humans never see it.
+      if (data.get('botcheck')) {
         setStatus('Thank you, ' + name + '.', 'success');
         form.reset();
         return;
       }
-
-      // FormSubmit AJAX endpoint: same URL with /ajax/ inserted after host.
-      const action = form.getAttribute('action') || '';
-      const ajaxUrl = action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
 
       if (submitBtn) {
         submitBtn.disabled = true;
@@ -124,28 +105,27 @@
       }
       setStatus('Sending your message...', null);
 
-      // Use JSON for the AJAX endpoint - FormSubmit accepts either.
+      // Build the JSON payload Web3Forms expects.
       const payload = {};
       data.forEach((value, key) => { payload[key] = value; });
 
-      fetch(ajaxUrl, {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
       })
-        .then((res) => {
-          if (!res.ok) throw new Error('HTTP ' + res.status);
-          return res.json();
-        })
-        .then(() => {
-          setStatus('Thank you, ' + name + '. Your message has reached us, and we will be in touch as soon as we can.', 'success');
-          form.reset();
+        .then((res) => res.json().then((body) => ({ ok: res.ok, body })))
+        .then(({ ok, body }) => {
+          if (ok && body && body.success) {
+            setStatus('Thank you, ' + name + '. Your message has reached us and we will be in touch within one business day.', 'success');
+            form.reset();
+          } else {
+            const reason = (body && (body.message || body.error)) || 'Please try again, or email info@tazkiaintelligence.com directly.';
+            setStatus('Sorry, your message could not be sent. ' + reason, 'error');
+          }
         })
         .catch(() => {
-          // AJAX blocked or activation pending: fall back to a native submit
-          // so the message still reaches info@tazkiaintelligence.com.
-          setStatus('Submitting your message...', null);
-          form.submit();
+          setStatus('Sorry, your message could not be sent. Please check your connection and try again, or email info@tazkiaintelligence.com directly.', 'error');
         })
         .finally(() => {
           if (submitBtn) {
