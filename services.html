@@ -7,7 +7,7 @@
   <meta name="description" content="Services from Tazkia Intelligence, helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions across Service, Sales, and the wider Salesforce platform." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
@@ -16,12 +16,14 @@
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Tazkia Intelligence - Home">
-        <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-        <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-        <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
+        <span class="brand-logo-wrap"><img src="assets/img/logo.png" alt="Tazkia Intelligence" /></span>
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links">
@@ -35,7 +37,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="page-hero">
       <div class="container">
         <span class="eyebrow">Services</span>
@@ -44,161 +46,261 @@
       </div>
     </section>
 
-    <section style="padding-top: 0;">
+    <section style="padding-top: clamp(24px, 3vw, 40px);">
       <div class="container">
+        <div class="svc-stack">
 
-        <!-- Service 1: Agentforce for Service -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">01 / Service</span>
-            <h3>Agentforce for Service</h3>
-            <p>Autonomous service agents that hold natural conversations with your customers, resolve routine queries instantly, and create well-formed cases when human follow-up is required.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Knowledge deflection grounded in Salesforce Knowledge via the Agentforce Data Library and Data Cloud retrieval</li>
-              <li>Multi-language conversations with detected language routing and translated responses</li>
-              <li>Intelligent case escalation with structured field capture, contact matching, and dedup</li>
-              <li>Custom logging, AI-originated flagging, and CSAT capture at the end of each interaction</li>
-              <li>Agent guardrails, GDPR-conscious consent flows, and human-in-the-loop escalation paths</li>
-            </ul>
-            <div class="benefits">
-              <h4>Enterprise productivity through Agentforce</h4>
-              <ul class="benefits-list">
-                <li><strong>Higher first-contact resolution.</strong> Routine queries handled by the agent, freeing service teams for complex, high-value work.</li>
-                <li><strong>Faster response, lower cost-to-serve.</strong> Sub-two-second replies at any hour, in any supported language.</li>
-                <li><strong>Better case quality.</strong> Structured intake means cases arrive with the right fields, the right context, and the right routing.</li>
-                <li><strong>Compounding knowledge.</strong> Conversations become signal, surfacing gaps in your knowledge base over time.</li>
-              </ul>
+          <!-- 01 Agentforce for Service -->
+          <article class="svc sl-card open" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-1-btn" aria-expanded="true" aria-controls="svc-1-panel">
+                <span class="svc-num">01</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 1 1 16 0"/><path d="M4 13v3a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 0z"/><path d="M20 13v3a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 0z"/><path d="M17 18v1a2 2 0 0 1-2 2h-2"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">Agentforce for Service</span>
+                  <span class="svc-sub">Autonomous service agents that hold natural conversations with your customers, resolve routine queries instantly, and create well-formed cases when human follow-up is required.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-1-panel" role="region" aria-labelledby="svc-1-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Knowledge deflection grounded in Salesforce Knowledge via the Agentforce Data Library and Data Cloud retrieval</li>
+                    <li>Multi-language conversations with detected language routing and translated responses</li>
+                    <li>Intelligent case escalation with structured field capture, contact matching, and dedup</li>
+                    <li>Custom logging, AI-originated flagging, and CSAT capture at the end of each interaction</li>
+                    <li>Agent guardrails, GDPR-conscious consent flows, and human-in-the-loop escalation paths</li>
+                  </ul>
+                  <div class="benefits">
+                    <h4>Enterprise productivity through Agentforce</h4>
+                    <ul class="benefits-list">
+                      <li><strong>Higher first-contact resolution.</strong> Routine queries handled by the agent, freeing service teams for complex, high-value work.</li>
+                      <li><strong>Faster response, lower cost-to-serve.</strong> Sub-two-second replies at any hour, in any supported language.</li>
+                      <li><strong>Better case quality.</strong> Structured intake means cases arrive with the right fields, the right context, and the right routing.</li>
+                      <li><strong>Compounding knowledge.</strong> Conversations become signal, surfacing gaps in your knowledge base over time.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Service 2: Agentforce for Sales -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">02 / Sales</span>
-            <h3>Agentforce for Sales</h3>
-            <p>AI sales assistants that qualify inbound interest, surface next-best actions, and handle the admin so your sellers spend more time on the conversations that drive revenue.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Commercial intent detection from web and conversational channels</li>
-              <li>Consented lead capture into Sales Cloud with intelligent dedup against Leads, Contacts, and Accounts</li>
-              <li>Account-aware prompts, summaries, and next-best-action recommendations for sellers</li>
-              <li>Email and meeting drafting, follow-up automation, and CRM hygiene</li>
-              <li>Pipeline hygiene, stage validation, and forecast quality automations</li>
-              <li>Routing into existing assignment rules and revenue operations workflows</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Service 3: AI Customer Engagement, Slack & Marketing -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">03 / Engagement</span>
-            <h3>AI Customer Engagement, Slack &amp; Marketing</h3>
-            <p>Always-on, multilingual engagement that spans web, messaging, Slack, and Marketing Cloud, putting AI productivity in the flow of work for service, sales, and marketing teams alike.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Messaging for Web embedded on your existing sites with site context passed in</li>
-              <li>Retrieval-augmented responses powered by Data Cloud and Salesforce Knowledge</li>
-              <li>Slack integration: Agentforce agents in channels and DMs, AI-assisted productivity, and account/deal swarming</li>
-              <li>Marketing operations support across Marketing Cloud and Account Engagement: journey enablement, AI-drafted copy, and conversational lead capture</li>
-              <li>Cross-functional enablement across service, sales, and marketing through shared agent topics and shared context</li>
-              <li>Brand-safe agent personas, tone, and guardrails defined per market and per audience</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Service 4: Intelligent Case Management -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">04 / Case Management</span>
-            <h3>Intelligent Case Management</h3>
-            <p>Smarter case operations end-to-end: AI-assisted classification, routing, enrichment, and resolution, plugged into your existing Service Cloud automations.</p>
-          </div>
-          <div>
-            <ul>
-              <li>AI classification of intent, sub-classification, country, and product on creation</li>
-              <li>Account, contact, and open-case lookup with duplicate handling logic</li>
-              <li>Escalation reason classification and AI-originated flagging</li>
-              <li>Assignment rules, validation rules, and Flow integration without ripping out what works</li>
-              <li>KPI instrumentation: deflection, FCR, CSAT, time-to-assign, duplicate rate</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Service 5: Security, Trust & AI Governance -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">05 / Security &amp; Governance</span>
-            <h3>Security, Trust &amp; AI Governance</h3>
-            <p>Responsible AI by design. We help enterprises adopt Agentforce with the guardrails, governance, and assurance their leadership teams, regulators, and customers expect.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Built on the Salesforce Einstein Trust Layer, Salesforce's trusted AI framework providing data masking, zero-data-retention, toxicity detection, and audit trails</li>
-              <li>Agent guardrails: scope, permitted topics, escalation rules, and refusal patterns</li>
-              <li>Enterprise AI governance model: AI Council, decision rights, model approvals, and acceptable-use policies</li>
-              <li>Secure AI implementation: permission sets, sharing, profile design, and least-privilege access for agents</li>
-              <li>Data protection, GDPR-aware consent flows, and PII handling across conversations and Cases</li>
-              <li>Continuous monitoring, drift detection, red-team exercises, and compliance reporting</li>
-            </ul>
-            <div class="benefits">
-              <h4>Trusted AI, the way enterprises need it</h4>
-              <ul class="benefits-list">
-                <li><strong>Trusted AI by default.</strong> Every agent interaction sits behind Salesforce's Einstein Trust Layer, masked, audited, and bounded by enterprise policy.</li>
-                <li><strong>Responsible adoption.</strong> Governance, ethics, and oversight built in from day one, not retrofitted.</li>
-                <li><strong>Regulator-ready.</strong> Audit trails, evidence, and controls that stand up to scrutiny.</li>
-                <li><strong>Confidence at scale.</strong> Leadership can sponsor AI knowing the right boundaries are in place.</li>
-              </ul>
+          <!-- 02 Agentforce for Sales -->
+          <article class="svc sl-card" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-2-btn" aria-expanded="false" aria-controls="svc-2-panel">
+                <span class="svc-num">02</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V11"/><path d="M10 21V7"/><path d="M15 21v-9"/><path d="M20 21V4"/><path d="M3 7l5-4 4 3 5-5"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">Agentforce for Sales</span>
+                  <span class="svc-sub">AI sales assistants that qualify inbound interest, surface next-best actions, and handle the admin so your sellers spend more time on the conversations that drive revenue.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-2-panel" role="region" aria-labelledby="svc-2-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Commercial intent detection from web and conversational channels</li>
+                    <li>Consented lead capture into Sales Cloud with intelligent dedup against Leads, Contacts, and Accounts</li>
+                    <li>Account-aware prompts, summaries, and next-best-action recommendations for sellers</li>
+                    <li>Email and meeting drafting, follow-up automation, and CRM hygiene</li>
+                    <li>Pipeline hygiene, stage validation, and forecast quality automations</li>
+                    <li>Routing into existing assignment rules and revenue operations workflows</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Service 6: Monitoring, Reporting & Post-Go-Live Support -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">06 / Monitor &amp; Improve</span>
-            <h3>Monitoring, Reporting &amp; Post-Go-Live Support</h3>
-            <p>Go-live is the beginning. We help enterprises measure, refine, and continuously improve Agentforce in production, so the value compounds quarter on quarter.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Agent performance tracking: deflection rate, first-contact resolution, CSAT, response speed, and intent accuracy</li>
-              <li><strong>Agent Analytics</strong>: Salesforce's purpose-built tool for comprehensive AI agent session analysis. Built on the unified Session Tracing Data Model (STDM), it captures every turn and event across all agent sessions, so we can query logged events to surface insights and optimise agent performance. A meaningful architectural step up on the legacy data foundation; we recommend existing users plan the upgrade to gather sufficient data for future insights and queries</li>
-              <li><strong>Tableau Next</strong>: Salesforce's flagship agentic analytics platform, bringing data into the flow of work with natural-language querying and AI-driven insights through Agentforce, so users can interact with data and trigger workflows without switching between apps</li>
-              <li>Operational reporting and dashboards across Service Cloud, Tableau, and Agent Analytics</li>
-              <li>User adoption monitoring across service, sales, and marketing teams</li>
-              <li>AI refinement loops: prompt tuning, topic re-scoping, and Knowledge gap remediation</li>
-              <li>Production hardening, observability, SLOs, and incident response patterns</li>
-              <li>Quarterly value-realisation reviews aligned to the business case</li>
-            </ul>
-          </div>
-        </article>
+          <!-- 03 AI Customer Engagement, Slack & Marketing -->
+          <article class="svc sl-card" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-3-btn" aria-expanded="false" aria-controls="svc-3-panel">
+                <span class="svc-num">03</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/><path d="M12 8v3"/><path d="M12 14h.01"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">AI Customer Engagement, Slack &amp; Marketing</span>
+                  <span class="svc-sub">Always-on, multilingual engagement that spans web, messaging, Slack, and Marketing Cloud, putting AI productivity in the flow of work for service, sales, and marketing teams alike.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-3-panel" role="region" aria-labelledby="svc-3-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Messaging for Web embedded on your existing sites with site context passed in</li>
+                    <li>Retrieval-augmented responses powered by Data Cloud and Salesforce Knowledge</li>
+                    <li>Slack integration: Agentforce agents in channels and DMs, AI-assisted productivity, and account/deal swarming</li>
+                    <li>Marketing operations support across Marketing Cloud and Account Engagement: journey enablement, AI-drafted copy, and conversational lead capture</li>
+                    <li>Cross-functional enablement across service, sales, and marketing through shared agent topics and shared context</li>
+                    <li>Brand-safe agent personas, tone, and guardrails defined per market and per audience</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
 
-        <!-- Service 7: AI Strategy, Adoption & Cross-Cloud -->
-        <article class="service-block reveal">
-          <div class="meta">
-            <span class="num">07 / Strategy</span>
-            <h3>AI Strategy, Adoption &amp; Cross-Cloud Expertise</h3>
-            <p>A structured route from AI vision to operating capability. Define the strategy, prepare the data foundation, prioritise use cases, and align the broader Salesforce ecosystem to business outcomes.</p>
-          </div>
-          <div>
-            <ul>
-              <li>Salesforce and Agentforce readiness assessment with prioritised use-case portfolio</li>
-              <li>Phased roadmap with success criteria, KPIs, and investment view</li>
-              <li>Role-based AI literacy and change-management curricula</li>
-              <li>Adoption analytics and value-realisation tracking aligned to leadership reporting</li>
-              <li>Cross-cloud expertise where it adds value: <strong>Experience Cloud</strong> portals and self-service, <strong>Marketing Cloud</strong> journeys, <strong>Health Cloud</strong> for regulated patient workflows, <strong>Slack</strong> collaboration, and <strong>Tableau</strong>, <strong>Tableau Next</strong>, and <strong>Agent Analytics</strong> for agentic analytics and agent performance insight at scale</li>
-            </ul>
-          </div>
-        </article>
+          <!-- 04 Intelligent Case Management -->
+          <article class="svc sl-card" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-4-btn" aria-expanded="false" aria-controls="svc-4-panel">
+                <span class="svc-num">04</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18M3 12h18M3 17h12"/><circle cx="20" cy="17" r="2"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">Intelligent Case Management</span>
+                  <span class="svc-sub">Smarter case operations end-to-end: AI-assisted classification, routing, enrichment, and resolution, plugged into your existing Service Cloud automations.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-4-panel" role="region" aria-labelledby="svc-4-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>AI classification of intent, sub-classification, country, and product on creation</li>
+                    <li>Account, contact, and open-case lookup with duplicate handling logic</li>
+                    <li>Escalation reason classification and AI-originated flagging</li>
+                    <li>Assignment rules, validation rules, and Flow integration without ripping out what works</li>
+                    <li>KPI instrumentation: deflection, FCR, CSAT, time-to-assign, duplicate rate</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
 
-        <!-- Platform Coverage callout -->
-        <article class="platform-coverage reveal">
+          <!-- 05 Security, Trust & AI Governance -->
+          <article class="svc sl-card sl-card--gold" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-5-btn" aria-expanded="false" aria-controls="svc-5-panel">
+                <span class="svc-num">05</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">Security, Trust &amp; AI Governance</span>
+                  <span class="svc-sub">Responsible AI by design. We help enterprises adopt Agentforce with the guardrails, governance, and assurance their leadership teams, regulators, and customers expect.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-5-panel" role="region" aria-labelledby="svc-5-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Built on the Salesforce Einstein Trust Layer, Salesforce's trusted AI framework providing data masking, zero-data-retention, toxicity detection, and audit trails</li>
+                    <li>Agent guardrails: scope, permitted topics, escalation rules, and refusal patterns</li>
+                    <li>Enterprise AI governance model: AI Council, decision rights, model approvals, and acceptable-use policies</li>
+                    <li>Secure AI implementation: permission sets, sharing, profile design, and least-privilege access for agents</li>
+                    <li>Data protection, GDPR-aware consent flows, and PII handling across conversations and Cases</li>
+                    <li>Continuous monitoring, drift detection, red-team exercises, and compliance reporting</li>
+                  </ul>
+                  <div class="benefits">
+                    <h4>Trusted AI, the way enterprises need it</h4>
+                    <ul class="benefits-list">
+                      <li><strong>Trusted AI by default.</strong> Every agent interaction sits behind Salesforce's Einstein Trust Layer, masked, audited, and bounded by enterprise policy.</li>
+                      <li><strong>Responsible adoption.</strong> Governance, ethics, and oversight built in from day one, not retrofitted.</li>
+                      <li><strong>Regulator-ready.</strong> Audit trails, evidence, and controls that stand up to scrutiny.</li>
+                      <li><strong>Confidence at scale.</strong> Leadership can sponsor AI knowing the right boundaries are in place.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 Monitoring, Reporting & Post-Go-Live Support -->
+          <article class="svc sl-card" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-6-btn" aria-expanded="false" aria-controls="svc-6-panel">
+                <span class="svc-num">06</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><path d="M13 14h4"/><path d="M13 17h2"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">Monitoring, Reporting &amp; Post-Go-Live Support</span>
+                  <span class="svc-sub">Go-live is the beginning. We help enterprises measure, refine, and continuously improve Agentforce in production, so the value compounds quarter on quarter.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-6-panel" role="region" aria-labelledby="svc-6-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Agent performance tracking: deflection rate, first-contact resolution, CSAT, response speed, and intent accuracy</li>
+                    <li><strong>Agent Analytics</strong>: Salesforce's purpose-built tool for comprehensive AI agent session analysis. Built on the unified Session Tracing Data Model (STDM), it captures every turn and event across all agent sessions, so we can query logged events to surface insights and optimise agent performance. A meaningful architectural step up on the legacy data foundation; we recommend existing users plan the upgrade to gather sufficient data for future insights and queries</li>
+                    <li><strong>Tableau Next</strong>: Salesforce's flagship agentic analytics platform, bringing data into the flow of work with natural-language querying and AI-driven insights through Agentforce, so users can interact with data and trigger workflows without switching between apps</li>
+                    <li>Operational reporting and dashboards across Service Cloud, Tableau, and Agent Analytics</li>
+                    <li>User adoption monitoring across service, sales, and marketing teams</li>
+                    <li>AI refinement loops: prompt tuning, topic re-scoping, and Knowledge gap remediation</li>
+                    <li>Production hardening, observability, SLOs, and incident response patterns</li>
+                    <li>Quarterly value-realisation reviews aligned to the business case</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 AI Strategy, Adoption & Cross-Cloud -->
+          <article class="svc sl-card" data-reveal>
+            <h3 class="svc-head">
+              <button class="svc-toggle" id="svc-7-btn" aria-expanded="false" aria-controls="svc-7-panel">
+                <span class="svc-num">07</span>
+                <span class="svc-icon" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                </span>
+                <span class="svc-titles">
+                  <span class="svc-title">AI Strategy, Adoption &amp; Cross-Cloud Expertise</span>
+                  <span class="svc-sub">A structured route from AI vision to operating capability. Define the strategy, prepare the data foundation, prioritise use cases, and align the broader Salesforce ecosystem to business outcomes.</span>
+                </span>
+                <span class="svc-chevron" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                </span>
+              </button>
+            </h3>
+            <div class="svc-panel" id="svc-7-panel" role="region" aria-labelledby="svc-7-btn">
+              <div class="svc-panel-inner">
+                <div class="svc-body">
+                  <ul>
+                    <li>Salesforce and Agentforce readiness assessment with prioritised use-case portfolio</li>
+                    <li>Phased roadmap with success criteria, KPIs, and investment view</li>
+                    <li>Role-based AI literacy and change-management curricula</li>
+                    <li>Adoption analytics and value-realisation tracking aligned to leadership reporting</li>
+                    <li>Cross-cloud expertise where it adds value: <strong>Experience Cloud</strong> portals and self-service, <strong>Marketing Cloud</strong> journeys, <strong>Health Cloud</strong> for regulated patient workflows, <strong>Slack</strong> collaboration, and <strong>Tableau</strong>, <strong>Tableau Next</strong>, and <strong>Agent Analytics</strong> for agentic analytics and agent performance insight at scale</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Platform Coverage -->
+        <div class="platform-coverage sl-card sl-card--gold" data-reveal>
           <div>
             <span class="eyebrow">Platform coverage</span>
             <h3>Where we work on the Salesforce platform</h3>
@@ -219,16 +321,16 @@
             <span class="cloud-chip">Agent Analytics</span>
             <span class="cloud-chip">Knowledge</span>
           </div>
-        </article>
+        </div>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="cta-banner reveal">
+        <div class="cta-banner" data-reveal="scale">
           <h2>Where will Agentforce work first?</h2>
           <p>Most engagements begin with a short discovery call and a focused readiness workshop. We tailor the path, and the first agentic use case, from there.</p>
-          <a href="contact.html" class="btn btn-primary btn-arrow">Let's Talk</a>
+          <a href="contact.html" class="btn btn-primary">Let's Talk <span class="arrow">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -236,43 +338,21 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand brand-footer">
-            <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo brand-logo-footer" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-            <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-            <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
-          </a>
-          <p style="margin-top:14px;">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
-        </div>
-        <div>
-          <h5>Company</h5>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Capabilities</h5>
-          <ul>
-            <li><a href="services.html">Agentforce for Service</a></li>
-            <li><a href="services.html">Agentforce for Sales</a></li>
-            <li><a href="services.html">AI Strategy &amp; Readiness</a></li>
-            <li><a href="services.html">Slack &amp; Workflow Integration</a></li>
-            <li><a href="services.html">Reporting &amp; Monitoring</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a></li>
-            <li><span class="muted">UAE &middot; Saudi Arabia &middot; GCC</span></li>
-          </ul>
-        </div>
+      <div class="footer-main">
+        <a href="index.html" class="footer-logo" aria-label="Tazkia Intelligence - Home">
+          <img src="assets/img/logo.png" alt="Tazkia Intelligence" />
+        </a>
+        <p class="footer-tagline">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="services.html">Services</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; <span id="year">2026</span> Tazkia Intelligence. All rights reserved.</span>
+        <span class="footer-region">UAE &middot; Saudi Arabia &middot; GCC</span>
       </div>
     </div>
   </footer>

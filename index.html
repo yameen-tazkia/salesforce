@@ -7,7 +7,7 @@
   <meta name="description" content="Tazkia Intelligence helps Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions that deliver measurable business outcomes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
@@ -16,13 +16,15 @@
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <!-- Navigation -->
   <header class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Tazkia Intelligence - Home">
-        <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-        <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-        <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
+        <span class="brand-logo-wrap"><img src="assets/img/logo.png" alt="Tazkia Intelligence" /></span>
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links">
@@ -36,54 +38,23 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- Hero -->
     <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <svg viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="node" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#2ea1ff" stop-opacity="1" />
-              <stop offset="100%" stop-color="#2ea1ff" stop-opacity="0" />
-            </radialGradient>
-            <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#2ea1ff" stop-opacity="0.6" />
-              <stop offset="100%" stop-color="#18e0c8" stop-opacity="0.05" />
-            </linearGradient>
-          </defs>
-          <g stroke="url(#line)" stroke-width="0.7" fill="none">
-            <path d="M120,560 L320,420 L520,520 L740,360 L960,470 L1180,300 L1340,420" />
-            <path d="M80,200 L260,310 L460,220 L680,330 L900,200 L1120,300 L1320,180" />
-            <path d="M200,640 L420,560 L640,620 L860,540 L1080,610 L1300,540" />
-            <path d="M40,420 L240,340 L420,420 L640,330 L820,420 L1040,330 L1260,420" />
-          </g>
-          <g fill="url(#node)">
-            <circle cx="320" cy="420" r="6" />
-            <circle cx="740" cy="360" r="8" />
-            <circle cx="1180" cy="300" r="7" />
-            <circle cx="260" cy="310" r="5" />
-            <circle cx="900" cy="200" r="9" />
-            <circle cx="640" cy="620" r="6" />
-            <circle cx="240" cy="340" r="5" />
-            <circle cx="1040" cy="330" r="7" />
-            <circle cx="460" cy="220" r="5" />
-            <circle cx="1120" cy="300" r="6" />
-          </g>
-        </svg>
-      </div>
+      <canvas id="hero-net" aria-hidden="true"></canvas>
+      <div class="hero-veil" aria-hidden="true"></div>
       <div class="container hero-inner">
-        <div class="hero-brand" aria-hidden="true">
-          <span class="hero-brand-glow"></span>
-          <img src="assets/img/logo.png" alt="" class="hero-brand-mark" />
+        <div class="hero-logo hero-in hero-in-1" aria-hidden="true">
+          <img src="assets/img/logo.png" alt="" />
         </div>
-        <span class="eyebrow">Salesforce &middot; Agentforce &middot; AI</span>
-        <h1>Unlocking AI potential for <span class="gradient-text">Salesforce enterprises</span></h1>
-        <p class="lead">An AI-native partner for Salesforce and Agentforce transformation, helping Gulf enterprises define their AI vision, establish governance, and deploy trusted agents that deliver measurable business outcomes.</p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-primary btn-arrow">Let's Talk</a>
+        <span class="eyebrow hero-in hero-in-2">Salesforce &middot; Agentforce &middot; AI</span>
+        <h1 class="hero-in hero-in-3">From AI vision to <span class="gradient-text">trusted execution</span></h1>
+        <p class="lead hero-in hero-in-4">An AI-native partner for Salesforce and Agentforce transformation, helping Gulf enterprises define their AI vision, establish governance, and deploy trusted agents that deliver measurable business outcomes.</p>
+        <div class="hero-actions hero-in hero-in-5">
+          <a href="contact.html" class="btn btn-primary">Let's Talk <span class="arrow">&rarr;</span></a>
           <a href="services.html" class="btn btn-ghost">Explore Services</a>
         </div>
-        <div class="hero-meta" aria-label="Highlights">
+        <div class="hero-meta hero-in hero-in-6" aria-label="Highlights">
           <div class="stat"><strong>Strategy</strong><span>Vision through execution</span></div>
           <div class="stat"><strong>Trust</strong><span>Governance by design</span></div>
           <div class="stat"><strong>Outcomes</strong><span>Measured in business value</span></div>
@@ -91,28 +62,68 @@
       </div>
     </section>
 
+    <!-- Capability marquee -->
+    <section class="marquee-section" aria-label="Platform capabilities">
+      <div class="marquee">
+        <div class="marquee-track">
+          <span class="marquee-chip"><span class="dot"></span>AI Strategy</span>
+          <span class="marquee-chip"><span class="dot"></span>Agentforce</span>
+          <span class="marquee-chip"><span class="dot"></span>Salesforce AI</span>
+          <span class="marquee-chip marquee-chip--lead"><span class="dot"></span>Sales Cloud</span>
+          <span class="marquee-chip marquee-chip--lead"><span class="dot"></span>Service Cloud</span>
+          <span class="marquee-chip marquee-chip--lead"><span class="dot"></span>Data Cloud</span>
+          <span class="marquee-chip"><span class="dot"></span>Experience Cloud</span>
+          <span class="marquee-chip"><span class="dot"></span>Marketing Cloud</span>
+          <span class="marquee-chip"><span class="dot"></span>Slack Integration</span>
+          <span class="marquee-chip"><span class="dot"></span>AI Governance</span>
+          <span class="marquee-chip"><span class="dot"></span>Reporting &amp; Monitoring</span>
+          <span class="marquee-chip"><span class="dot"></span>Einstein Trust Layer</span>
+          <span class="marquee-chip"><span class="dot"></span>Agent Analytics</span>
+          <span class="marquee-chip"><span class="dot"></span>Tableau Next</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>AI Strategy</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Agentforce</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Salesforce AI</span>
+          <span class="marquee-chip marquee-chip--lead" aria-hidden="true"><span class="dot"></span>Sales Cloud</span>
+          <span class="marquee-chip marquee-chip--lead" aria-hidden="true"><span class="dot"></span>Service Cloud</span>
+          <span class="marquee-chip marquee-chip--lead" aria-hidden="true"><span class="dot"></span>Data Cloud</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Experience Cloud</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Marketing Cloud</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Slack Integration</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>AI Governance</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Reporting &amp; Monitoring</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Einstein Trust Layer</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Agent Analytics</span>
+          <span class="marquee-chip" aria-hidden="true"><span class="dot"></span>Tableau Next</span>
+        </div>
+      </div>
+    </section>
+
     <!-- Value Proposition -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Why Tazkia Intelligence</span>
-          <h2>From AI vision to trusted execution.</h2>
+          <h2>Unlocking AI potential for Salesforce enterprises.</h2>
           <p>We don't bolt AI onto legacy delivery. Every engagement starts with a clear vision, embeds governance from day one, and ends in trusted agents delivering measurable business outcomes.</p>
         </div>
-        <div class="values reveal">
-          <div class="value">
+        <div class="values">
+          <div class="value sl-card" data-reveal style="--rd:.0s">
+            <span class="value-num">01</span>
             <strong>Vision and roadmap</strong>
             <p>Every build starts with a defined AI vision, prioritised use cases, and a roadmap that connects strategy to business outcomes.</p>
           </div>
-          <div class="value">
+          <div class="value sl-card" data-reveal style="--rd:.1s">
+            <span class="value-num">02</span>
             <strong>Governance by design</strong>
             <p>Einstein Trust Layer, agent guardrails, and human-in-the-loop oversight built in from day one. Trusted AI by default.</p>
           </div>
-          <div class="value">
+          <div class="value sl-card" data-reveal style="--rd:.2s">
+            <span class="value-num">03</span>
             <strong>Trusted Agentforce</strong>
             <p>Agentic AI and Agentforce at the heart of every solution, engineered for the security and scale Gulf enterprises require.</p>
           </div>
-          <div class="value">
+          <div class="value sl-card" data-reveal style="--rd:.3s">
+            <span class="value-num">04</span>
             <strong>Outcomes-first</strong>
             <p>Lean delivery, senior practitioners, and impact measured in efficiency, revenue, and time-to-value.</p>
           </div>
@@ -123,13 +134,13 @@
     <!-- Human + AI Collaboration -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Human + AI Collaboration</span>
           <h2>AI that augments your team, not replaces them</h2>
           <p>We architect trusted Salesforce systems where Agentforce handles the routine and your people own the meaningful. Dramatic efficiency gains, with governance and judgement intact.</p>
         </div>
-        <div class="collab-grid reveal">
-          <article class="collab-card collab-human">
+        <div class="collab-grid">
+          <article class="collab-card collab-human sl-card" data-reveal="left">
             <span class="collab-tag">Your Team</span>
             <h3>Owns the meaningful</h3>
             <ul>
@@ -147,7 +158,7 @@
             </div>
             <span class="connector-label">collaborate in the flow of work</span>
           </div>
-          <article class="collab-card collab-ai">
+          <article class="collab-card collab-ai sl-card" data-reveal="right">
             <span class="collab-tag">AI Agents</span>
             <h3>Handle the routine</h3>
             <ul>
@@ -158,11 +169,11 @@
             </ul>
           </article>
         </div>
-        <div class="collab-outcomes reveal">
-          <div class="outcome-pill"><strong>30-60%</strong><span>Routine work automated</span></div>
-          <div class="outcome-pill"><strong>2-5×</strong><span>Faster cycle times</span></div>
-          <div class="outcome-pill"><strong>Hours → Seconds</strong><span>For first-pass work</span></div>
-          <div class="outcome-pill"><strong>Human-in-loop</strong><span>By design, end-to-end</span></div>
+        <div class="collab-outcomes">
+          <div class="outcome-pill sl-card" data-reveal style="--rd:.0s"><strong>30-60%</strong><span>Routine work automated</span></div>
+          <div class="outcome-pill sl-card" data-reveal style="--rd:.1s"><strong>2-5&times;</strong><span>Faster cycle times</span></div>
+          <div class="outcome-pill sl-card" data-reveal style="--rd:.2s"><strong>Hours &rarr; Seconds</strong><span>For first-pass work</span></div>
+          <div class="outcome-pill sl-card" data-reveal style="--rd:.3s"><strong>Human-in-loop</strong><span>By design, end-to-end</span></div>
         </div>
       </div>
     </section>
@@ -170,63 +181,63 @@
     <!-- Services Overview -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Services</span>
           <h2>What we deliver</h2>
           <p>From AI vision and data foundations through governance to trusted Agentforce deployment and measured outcomes. Strongest emphasis on Service Cloud, Sales Cloud, and Data Cloud, with broader ecosystem expertise across Experience Cloud, Marketing Cloud, Slack, Tableau, Tableau Next, and Agent Analytics.</p>
         </div>
-        <div class="grid grid-3 reveal">
-          <article class="card">
+        <div class="grid grid-3">
+          <a class="card sl-card" href="services.html" data-reveal style="--rd:.0s">
             <div class="icon" aria-hidden="true">
-              <!-- headset / service agent -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13a8 8 0 1 1 16 0"/><path d="M4 13v3a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 0z"/><path d="M20 13v3a2 2 0 0 1-2 2h-1v-5h1a2 2 0 0 1 2 0z"/><path d="M17 18v1a2 2 0 0 1-2 2h-2"/></svg>
             </div>
             <h3>Agentforce for Service</h3>
             <p>Autonomous service agents that deflect routine queries, triage cases, and hand off seamlessly to your team for the complex work.</p>
-          </article>
-          <article class="card">
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="card sl-card" href="services.html" data-reveal style="--rd:.08s">
             <div class="icon" aria-hidden="true">
-              <!-- pipeline / growth chart -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V11"/><path d="M10 21V7"/><path d="M15 21v-9"/><path d="M20 21V4"/><path d="M3 7l5-4 4 3 5-5"/></svg>
             </div>
             <h3>Agentforce for Sales</h3>
             <p>AI assistants that qualify leads, surface next-best actions, and automate the admin so your sellers spend more time with customers.</p>
-          </article>
-          <article class="card">
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="card sl-card sl-card--gold" href="services.html" data-reveal style="--rd:.16s">
             <div class="icon" aria-hidden="true">
-              <!-- shield / trust -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
             <h3>Security, Trust &amp; AI Governance</h3>
             <p>Guardrails, the Einstein Trust Layer, monitoring, and responsible AI frameworks so enterprises can adopt agents with confidence.</p>
-          </article>
-          <article class="card">
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="card sl-card" href="services.html" data-reveal style="--rd:.0s">
             <div class="icon" aria-hidden="true">
-              <!-- conversation / engagement bubble with spark -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12z"/><path d="M12 8v3"/><path d="M12 14h.01"/></svg>
             </div>
             <h3>AI Customer Engagement &amp; Slack</h3>
             <p>Multilingual, knowledge-grounded conversations across web, messaging, and Slack, with Agentforce productivity in the flow of work.</p>
-          </article>
-          <article class="card">
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="card sl-card" href="services.html" data-reveal style="--rd:.08s">
             <div class="icon" aria-hidden="true">
-              <!-- dashboard / analytics -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/><path d="M13 14h4"/><path d="M13 17h2"/></svg>
             </div>
             <h3>Monitoring, Reporting &amp; Post-Go-Live</h3>
             <p>Agent performance tracking with Agent Analytics, executive reporting with Tableau Next, and continuous improvement so AI keeps getting better after go-live.</p>
-          </article>
-          <article class="card">
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
+          <a class="card sl-card" href="services.html" data-reveal style="--rd:.16s">
             <div class="icon" aria-hidden="true">
-              <!-- roadmap / compass -->
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
             </div>
             <h3>AI Strategy &amp; Adoption</h3>
             <p>Readiness assessment, prioritised use cases, and AI literacy so the people working with agents are confident, productive, and trusted.</p>
-          </article>
+            <span class="card-cue">Explore <span aria-hidden="true">&rarr;</span></span>
+          </a>
         </div>
-        <div class="text-center" style="margin-top:36px;">
-          <a href="services.html" class="btn btn-ghost btn-arrow">See all services</a>
+        <div class="text-center" style="margin-top:40px;" data-reveal>
+          <a href="services.html" class="btn btn-ghost">See all services <span class="arrow">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -234,8 +245,8 @@
     <!-- Salesforce + Agentforce orchestration -->
     <section>
       <div class="container">
-        <div class="focus reveal">
-          <div>
+        <div class="focus">
+          <div data-reveal="left">
             <span class="eyebrow">Salesforce &amp; Agentforce</span>
             <h2>One platform. Orchestrated by trusted agents.</h2>
             <p>We design Agentforce as the connective intelligence across your Salesforce platform, with governance and the Einstein Trust Layer at the foundation. Service Cloud, Sales Cloud, Data Cloud, and Knowledge give agents the context they need to act with confidence.</p>
@@ -247,62 +258,64 @@
               <li>One lean, senior team accountable from vision through deployment and beyond</li>
             </ul>
           </div>
-          <div class="panel agent-console" aria-hidden="true">
-            <div class="console-bar">
-              <div class="console-status">
-                <span class="console-pulse"></span>
-                <span class="console-title">Agentforce</span>
-                <span class="console-sub">Live session</span>
-              </div>
-              <div class="console-chips">
-                <span class="console-chip">Service Cloud</span>
-                <span class="console-chip console-chip--gold">EN &middot; AR</span>
-              </div>
-            </div>
-
-            <div class="console-conv">
-              <div class="console-msg console-msg--customer">
-                <div class="console-msg-avatar">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22a8 8 0 0 1 16 0"/></svg>
+          <div class="agent-console sl-card" data-reveal="right" aria-hidden="true">
+            <div class="agent-console-frame">
+              <div class="console-bar">
+                <div class="console-status">
+                  <span class="console-pulse"></span>
+                  <span class="console-title">Agentforce</span>
+                  <span class="console-sub">Live session</span>
                 </div>
-                <div class="console-msg-body">
-                  <span class="console-msg-meta">Customer</span>
-                  <p>Can I add a new user to my account before our renewal?</p>
+                <div class="console-chips">
+                  <span class="console-chip">Service Cloud</span>
+                  <span class="console-chip console-chip--gold">EN &middot; AR</span>
                 </div>
               </div>
 
-              <div class="console-msg console-msg--agent">
-                <div class="console-msg-avatar console-msg-avatar--brand">
-                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8L12 2z"/></svg>
-                </div>
-                <div class="console-msg-body">
-                  <span class="console-msg-meta">Agentforce</span>
-                  <p>Of course. I've checked your plan and you have 2 seats available before renewal. I can add a new user now.</p>
-                  <div class="console-actions">
-                    <span class="console-action"><span class="action-dot"></span>Account looked up</span>
-                    <span class="console-action"><span class="action-dot"></span>Seat policy verified</span>
-                    <span class="console-action"><span class="action-dot"></span>Renewal date pulled</span>
+              <div class="console-conv">
+                <div class="console-msg console-msg--customer">
+                  <div class="console-msg-avatar">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22a8 8 0 0 1 16 0"/></svg>
+                  </div>
+                  <div class="console-msg-body">
+                    <span class="console-msg-meta">Customer</span>
+                    <p>Can I add a new user to my account before our renewal?</p>
                   </div>
                 </div>
+
+                <div class="console-msg console-msg--agent">
+                  <div class="console-msg-avatar console-msg-avatar--brand">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8L12 2z"/></svg>
+                  </div>
+                  <div class="console-msg-body">
+                    <span class="console-msg-meta">Agentforce</span>
+                    <p>Of course. I've checked your plan and you have 2 seats available before renewal. I can add a new user now.</p>
+                    <div class="console-actions">
+                      <span class="console-action"><span class="action-dot"></span>Account looked up</span>
+                      <span class="console-action"><span class="action-dot"></span>Seat policy verified</span>
+                      <span class="console-action"><span class="action-dot"></span>Renewal date pulled</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="console-typing" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
               </div>
 
-              <div class="console-typing" aria-hidden="true">
-                <span></span><span></span><span></span>
-              </div>
-            </div>
-
-            <div class="console-metrics">
-              <div class="console-metric">
-                <strong>1.4s</strong>
-                <span>Avg response</span>
-              </div>
-              <div class="console-metric">
-                <strong>62%</strong>
-                <span>Deflection</span>
-              </div>
-              <div class="console-metric">
-                <strong>96%</strong>
-                <span>CSAT</span>
+              <div class="console-metrics">
+                <div class="console-metric">
+                  <strong><span data-countup="1.4" data-decimals="1" data-suffix="s">0s</span></strong>
+                  <span>Avg response</span>
+                </div>
+                <div class="console-metric">
+                  <strong><span data-countup="62" data-suffix="%">0%</span></strong>
+                  <span>Deflection</span>
+                </div>
+                <div class="console-metric">
+                  <strong><span data-countup="96" data-suffix="%">0%</span></strong>
+                  <span>CSAT</span>
+                </div>
               </div>
             </div>
           </div>
@@ -310,33 +323,72 @@
       </div>
     </section>
 
-    <!-- Selected Experience -->
+    <!-- Selected Experience: journey timeline -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Selected Experience</span>
           <h2>Agentforce work behind the brand</h2>
           <p>An early-stage firm built on senior practitioners. Recent engagements include the discovery and solution design for a multi-language Agentforce for Service rollout at a global data and analytics organisation.</p>
         </div>
-        <div class="experience-card reveal">
-          <div class="experience-meta">
-            <span class="experience-tag">Agentforce for Service</span>
-            <h3>Global data and analytics organisation</h3>
-            <p class="experience-role">Discovery, requirements gathering, service process design, AI agent use case definition, solution architecture support, and operational workflow mapping.</p>
+
+        <div class="journey" data-reveal>
+          <div class="journey-progress" aria-hidden="true"></div>
+          <div class="journey-grid">
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">01 &middot; Discovery</span>
+                <h3>Workshops &amp; requirements</h3>
+                <p>Facilitated cross-functional sessions aligning CX, marketing, and CRM stakeholders on goals, success criteria, and the target operating model, capturing business rules, escalation paths, guardrails, multi-language coverage, and GDPR-aware consent flows.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">02 &middot; Design</span>
+                <h3>Service &amp; agent design</h3>
+                <p>Mapped end-to-end journeys across knowledge deflection, case escalation, and lead generation, defining topics, intents, classification rules, and conversation flows with human handover points.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">03 &middot; Implementation</span>
+                <h3>Architecture &amp; workflows</h3>
+                <p>Architected the Agentforce, Data Cloud, and Knowledge stack with retrieval grounded in 150+ articles; designed case-creation flows, duplicate handling, and assignment-rule integration.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">04 &middot; Agent Analytics</span>
+                <h3>Monitoring implementation</h3>
+                <p>Implemented agent monitoring using Salesforce Agent Analytics out-of-the-box metrics, wired to CSAT capture and post-interaction logging into Service Cloud.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">05 &middot; Monitoring</span>
+                <h3>Post-go-live visibility</h3>
+                <p>Ongoing visibility into agent performance, deflection rates, escalation patterns, and operational health across every agent session.</p>
+              </div>
+            </div>
+            <div class="journey-step">
+              <span class="journey-node" aria-hidden="true"></span>
+              <div class="journey-card sl-card">
+                <span class="phase">06 &middot; Optimisation</span>
+                <h3>Continuous improvement</h3>
+                <p>Insight loops that surface Knowledge gaps and tuning opportunities, so agent quality and deflection keep improving quarter on quarter.</p>
+              </div>
+            </div>
           </div>
-          <div class="experience-body">
-            <p>Partner contribution to the design of a Salesforce Agentforce chatbot deployed across four country websites (UK, Germany, Austria, Switzerland) and four languages. The engagement covered three integrated agent scenarios and the operational model behind them.</p>
-            <ul class="experience-list">
-              <li><strong>Discovery workshops.</strong> Facilitated cross-functional sessions to align CX, marketing, and CRM stakeholders on goals, success criteria, and target operating model.</li>
-              <li><strong>Requirements gathering.</strong> Captured business rules, escalation paths, agent guardrails, multi-language coverage, and GDPR-aware consent flows.</li>
-              <li><strong>Service process design.</strong> Mapped end-to-end customer journeys across knowledge deflection, case escalation, and lead generation, including human handover points.</li>
-              <li><strong>AI agent use case definition.</strong> Defined topics, intents, classification rules, and conversation flows for the agent's role within Service Cloud.</li>
-              <li><strong>Solution architecture support.</strong> Architected the Agentforce + Data Cloud + Knowledge stack using the Agentforce Data Library, with retrieval-augmented generation grounded in 150+ Knowledge articles.</li>
-              <li><strong>Operational workflow mapping.</strong> Designed case-creation flows, duplicate handling, assignment-rule integration, CSAT capture, and post-interaction logging into Service Cloud.</li>
-              <li><strong>Agent monitoring and operational insight.</strong> Implemented agent monitoring using Salesforce Agent Analytics out-of-the-box metrics, providing post go-live visibility into agent performance, deflection rates, escalation patterns, and operational health.</li>
-            </ul>
-            <p>Delivered as a partner contribution alongside the client's prime implementation team. Names and figures generalised for confidentiality.</p>
-          </div>
+        </div>
+
+        <div class="experience-context sl-card sl-card--gold" data-reveal>
+          <span class="experience-tag">Agentforce for Service</span>
+          <p>Partner contribution to a multi-language Agentforce for Service rollout at a global data and analytics organisation: a chatbot deployed across four country websites (UK, Germany, Austria, Switzerland) and four languages, covering knowledge deflection, case escalation, and lead generation. Delivered alongside the client's prime implementation team; names and figures generalised for confidentiality.</p>
         </div>
       </div>
     </section>
@@ -344,12 +396,12 @@
     <!-- Testimonials -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">What clients say</span>
           <h2>Senior leaders, in their own words</h2>
         </div>
-        <div class="testimonials reveal">
-          <figure class="testimonial">
+        <div class="testimonials">
+          <figure class="testimonial sl-card" data-reveal style="--rd:.0s">
             <span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
             <blockquote>Agentforce and AI agents are a turning point for our Customer Success team. By taking on the repetitive workload, they free our people to focus on the complex, high-value cases that genuinely move the needle for our customers, and that is exactly the kind of productivity and outcome shift we have been working towards.</blockquote>
             <figcaption>
@@ -357,7 +409,7 @@
               <span class="testimonial-role">VP of Customer Success</span>
             </figcaption>
           </figure>
-          <figure class="testimonial">
+          <figure class="testimonial sl-card" data-reveal style="--rd:.12s">
             <span class="testimonial-mark" aria-hidden="true">&ldquo;</span>
             <blockquote>A thoughtful, senior team that understood both the marketing reality and the Salesforce platform. Their work on conversational AI and adoption gave us confidence that intelligent agents would augment, not replace, what our people do best.</blockquote>
             <figcaption>
@@ -372,10 +424,10 @@
     <!-- Final CTA -->
     <section>
       <div class="container">
-        <div class="cta-banner reveal">
+        <div class="cta-banner" data-reveal="scale">
           <h2>Ready to become an agentic enterprise?</h2>
           <p>We work with Gulf enterprises ready to move from AI ambition to trusted execution, side by side with their people. If that's you, let's talk.</p>
-          <a href="contact.html" class="btn btn-primary btn-arrow">Let's Talk</a>
+          <a href="contact.html" class="btn btn-primary">Let's Talk <span class="arrow">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -384,43 +436,21 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand brand-footer">
-            <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo brand-logo-footer" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-            <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-            <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
-          </a>
-          <p style="margin-top:14px;">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
-        </div>
-        <div>
-          <h5>Company</h5>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Capabilities</h5>
-          <ul>
-            <li><a href="services.html">Agentforce for Service</a></li>
-            <li><a href="services.html">Agentforce for Sales</a></li>
-            <li><a href="services.html">AI Strategy &amp; Readiness</a></li>
-            <li><a href="services.html">Slack &amp; Workflow Integration</a></li>
-            <li><a href="services.html">Reporting &amp; Monitoring</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a></li>
-            <li><span class="muted">UAE &middot; Saudi Arabia &middot; GCC</span></li>
-          </ul>
-        </div>
+      <div class="footer-main">
+        <a href="index.html" class="footer-logo" aria-label="Tazkia Intelligence - Home">
+          <img src="assets/img/logo.png" alt="Tazkia Intelligence" />
+        </a>
+        <p class="footer-tagline">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="services.html">Services</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; <span id="year">2026</span> Tazkia Intelligence. All rights reserved.</span>
+        <span class="footer-region">UAE &middot; Saudi Arabia &middot; GCC</span>
       </div>
     </div>
   </footer>

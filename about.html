@@ -7,7 +7,7 @@
   <meta name="description" content="Tazkia Intelligence helps Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions that deliver measurable business outcomes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="icon" type="image/png" sizes="48x48" href="assets/img/favicon-48.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
@@ -16,12 +16,14 @@
   <link rel="shortcut icon" href="favicon.ico" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="backdrop" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="nav">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Tazkia Intelligence - Home">
-        <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-        <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-        <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
+        <span class="brand-logo-wrap"><img src="assets/img/logo.png" alt="Tazkia Intelligence" /></span>
       </a>
       <nav aria-label="Primary">
         <ul class="nav-links">
@@ -35,7 +37,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <section class="page-hero">
       <div class="container">
         <span class="eyebrow">About Us</span>
@@ -45,23 +47,23 @@
     </section>
 
     <!-- Brand Meaning -->
-    <section class="brand-meaning">
+    <section style="padding-top: clamp(24px, 3vw, 40px);">
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">The thinking behind our name</span>
           <h2>Two ideas, one practice</h2>
           <p>Our name is a deliberate signal of how we approach enterprise transformation. It pairs a centuries-old idea of purification and growth with a modern reading of intelligence as a discipline.</p>
         </div>
 
-        <div class="brand-meaning-grid reveal">
-          <article class="meaning-card meaning-card--tazkia">
+        <div class="brand-meaning-grid">
+          <article class="meaning-card sl-card" data-reveal="left">
             <span class="meaning-tag">Tazkia <span class="meaning-tag-script" lang="ar" dir="rtl">&#1578;&#1586;&#1603;&#1610;&#1577;</span></span>
             <h3>Purification and purposeful growth</h3>
             <p>Tazkia is an Arabic word, rooted in the Qur'an, that carries two interconnected meanings. The careful cleansing of intentions, actions, and processes from what holds them back. And the patient nurturing of what is good, so it can grow and reach its full potential.</p>
             <p class="meaning-pivot">Applied to enterprise, it means more than removing inefficiency or complexity. It means helping organisations grow sustainably, intelligently, and with clear purpose.</p>
           </article>
 
-          <article class="meaning-card meaning-card--intelligence">
+          <article class="meaning-card meaning-card--intelligence sl-card" data-reveal="right">
             <span class="meaning-tag">Intelligence</span>
             <h3>Three dimensions, one practice</h3>
             <p>Intelligence, to us, lives in three places at once.</p>
@@ -73,7 +75,7 @@
           </article>
         </div>
 
-        <article class="meaning-synthesis reveal">
+        <article class="meaning-synthesis sl-card sl-card--gold" data-reveal="scale">
           <span class="meaning-tag meaning-tag--featured">Tazkia Intelligence</span>
           <h3>Purified, purposeful intelligence</h3>
           <p>Together, the name describes how we work. We use technology, especially AI, as a tool to elevate human potential, improve customer experiences, and help enterprises do business with integrity and Barakah, lasting value rooted in purpose.</p>
@@ -90,16 +92,16 @@
     </section>
 
     <!-- Impact arm: Tazkia Impact Foundation -->
-    <section class="impact-arm">
+    <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Beyond business</span>
           <h2>Two wings of the same vision</h2>
           <p>The same root that shapes Tazkia Intelligence also shapes Tazkia Impact Foundation, our charitable arm. Together they form a single cycle: a business that generates Barakah, and a foundation that distributes it.</p>
         </div>
 
-        <div class="impact-pair reveal">
-          <article class="impact-card impact-card--business">
+        <div class="impact-pair">
+          <article class="impact-card impact-card--business sl-card" data-reveal="left">
             <span class="impact-tag">The Practice</span>
             <h3>Purifies income, helps enterprises grow</h3>
             <p>Tazkia Intelligence is an AI-native partner for Salesforce and Agentforce transformation. Value created through purposeful, ethical work and human-in-the-loop delivery.</p>
@@ -111,7 +113,7 @@
             <span class="impact-flow-label">Barakah</span>
           </div>
 
-          <article class="impact-card impact-card--foundation">
+          <article class="impact-card impact-card--foundation sl-card sl-card--gold" data-reveal="right">
             <span class="impact-tag">The Foundation</span>
             <h3>Purifies wealth, helps society grow</h3>
             <p>Tazkia Impact Foundation reinvests a share of every engagement into community upliftment, education, and humanitarian aid, extending the mission beyond business.</p>
@@ -119,29 +121,30 @@
           </article>
         </div>
 
-        <blockquote class="impact-vision reveal">
+        <blockquote class="impact-vision sl-card sl-card--gold" data-reveal="scale">
           <p>At Tazkia Intelligence, we believe true growth comes from purity of purpose. We build intelligent, ethical technology solutions that empower people and businesses, and through Tazkia Impact Foundation we reinvest that growth to uplift communities, fund education, and spread Barakah across the world.</p>
           <cite>Our unified vision</cite>
         </blockquote>
       </div>
     </section>
 
+    <!-- Mission / Vision / Approach / Where we work -->
     <section style="padding-top: 0;">
       <div class="container">
-        <div class="pillars reveal">
-          <div class="pillar">
+        <div class="pillars">
+          <div class="pillar sl-card" data-reveal style="--rd:.0s">
             <h4>Mission</h4>
             <p>Help Gulf enterprises define their AI vision, establish governance, and deploy trusted agents that work alongside their people, delivering measurable business outcomes.</p>
           </div>
-          <div class="pillar">
+          <div class="pillar sl-card" data-reveal style="--rd:.1s">
             <h4>Vision</h4>
             <p>To be the AI-native partner Gulf enterprises trust for Salesforce and Agentforce transformation, known for strategic vision, governance by design, and outcomes that compound.</p>
           </div>
-          <div class="pillar">
+          <div class="pillar sl-card" data-reveal style="--rd:.2s">
             <h4>Approach</h4>
             <p>From vision to outcomes. Every engagement begins with clear AI strategy, embeds governance from day one, and deploys trusted Agentforce solutions delivered by one lean, senior team accountable end to end.</p>
           </div>
-          <div class="pillar">
+          <div class="pillar sl-card" data-reveal style="--rd:.3s">
             <h4>Where we work</h4>
             <p>Across the UAE, Saudi Arabia, and the wider GCC. Supporting enterprise leadership in financial services, real estate, retail, health, and technology, wherever Salesforce is mission-critical and AI ambition is high.</p>
           </div>
@@ -149,30 +152,31 @@
       </div>
     </section>
 
+    <!-- Principles -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Principles</span>
           <h2>What we stand for</h2>
           <p>Four principles that shape every decision, from architecture to adoption.</p>
         </div>
-        <div class="principles reveal">
-          <div class="principle">
+        <div class="principles">
+          <div class="principle sl-card" data-reveal style="--rd:.0s">
             <span class="num">01</span>
             <strong>Vision before build</strong>
             <p>Every engagement starts with a defined AI vision and a roadmap of prioritised use cases. Strategy first, then trusted execution. No build without a clear business outcome.</p>
           </div>
-          <div class="principle">
+          <div class="principle sl-card" data-reveal style="--rd:.1s">
             <span class="num">02</span>
             <strong>Governance by design</strong>
             <p>Responsible AI built into every solution from day one, never retrofitted. Einstein Trust Layer, guardrails, and human-in-the-loop oversight leadership and regulators can stand behind.</p>
           </div>
-          <div class="principle">
+          <div class="principle sl-card" data-reveal style="--rd:.2s">
             <span class="num">03</span>
             <strong>Human + AI together</strong>
             <p>Trusted agents and people are designed to work side by side from the start. Agents take the routine; humans own the meaningful. No shadow workforce, no role erosion.</p>
           </div>
-          <div class="principle">
+          <div class="principle sl-card" data-reveal style="--rd:.3s">
             <span class="num">04</span>
             <strong>Measurable outcomes</strong>
             <p>Sustainable, compounding outcomes over slideware. Lean delivery and senior practitioners, with impact measured across efficiency, revenue, and the trust we earn.</p>
@@ -184,48 +188,48 @@
     <!-- Experience & Credentials -->
     <section>
       <div class="container">
-        <div class="section-head reveal">
+        <div class="section-head" data-reveal>
           <span class="eyebrow">Experience &amp; Credentials</span>
           <h2>Deep Salesforce expertise. Real Agentforce delivery.</h2>
           <p>Senior practitioners with credible enterprise programme experience, Salesforce-certified across the platforms that matter, and a track record of putting AI to work where it counts.</p>
         </div>
-        <div class="credentials-grid reveal">
-          <article class="credential-card">
+        <div class="credentials-grid">
+          <article class="credential-card sl-card" data-reveal style="--rd:.0s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
             </div>
-            <strong class="credential-number">18+</strong>
+            <strong class="credential-number"><span data-countup="18" data-suffix="+">0+</span></strong>
             <span class="credential-label">Years of Salesforce delivery experience</span>
           </article>
-          <article class="credential-card">
+          <article class="credential-card sl-card" data-reveal style="--rd:.08s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="M9 14l-2 7 5-3 5 3-2-7"/></svg>
             </div>
-            <strong class="credential-number">5+</strong>
+            <strong class="credential-number"><span data-countup="5" data-suffix="+">0+</span></strong>
             <span class="credential-label">Salesforce certifications across the platform</span>
           </article>
-          <article class="credential-card">
+          <article class="credential-card sl-card" data-reveal style="--rd:.16s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 9h6M9 13h6M9 17h6"/></svg>
             </div>
             <strong class="credential-number">Enterprise</strong>
             <span class="credential-label">Transformation programme experience, strategy to scale</span>
           </article>
-          <article class="credential-card">
+          <article class="credential-card sl-card" data-reveal style="--rd:.0s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.4 7.2 16.9l.9-5.4L4.2 7.7l5.4-.8L12 2z"/></svg>
             </div>
             <strong class="credential-number">Agentforce</strong>
             <span class="credential-label">Hands-on Agentforce and AI implementation depth</span>
           </article>
-          <article class="credential-card">
+          <article class="credential-card sl-card" data-reveal style="--rd:.08s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 17 7a4 4 0 0 1 1 7.9"/><path d="M13 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" opacity="0.5"/></svg>
             </div>
             <strong class="credential-number">Cross-Cloud</strong>
             <span class="credential-label">Sales, Service, Data, Marketing, and Experience Cloud</span>
           </article>
-          <article class="credential-card">
+          <article class="credential-card sl-card" data-reveal style="--rd:.16s">
             <div class="credential-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 22a8 8 0 0 1 16 0"/></svg>
             </div>
@@ -236,10 +240,11 @@
       </div>
     </section>
 
+    <!-- Our practice + platform stack -->
     <section>
       <div class="container">
-        <div class="focus reveal">
-          <div>
+        <div class="focus">
+          <div data-reveal="left">
             <span class="eyebrow">Our practice</span>
             <h2>Senior practitioners. Lean delivery. Agentic by default.</h2>
             <p>We staff small, senior teams that move quickly, communicate clearly, and stay accountable to the outcome. No layered orgs, no junior-staffed engagements, and intelligent agents on the team, not just on the slide.</p>
@@ -251,59 +256,55 @@
               <li>Change leaders fluent in AI adoption, literacy, and governance</li>
             </ul>
           </div>
-          <div class="panel platform-panel" aria-hidden="true">
-            <div class="platform-stack">
-
-              <div class="stack-layer stack-layer--agentforce">
-                <div class="stack-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
-                </div>
-                <div class="stack-body">
-                  <span class="stack-tag">Layer 04 &middot; Agents</span>
-                  <strong>Agentforce</strong>
-                  <span class="stack-meta">Agentic AI and intelligent orchestration</span>
-                </div>
+          <div class="platform-stack" data-reveal="right" aria-hidden="true">
+            <div class="stack-layer stack-layer--agentforce sl-card sl-card--gold">
+              <div class="stack-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-14 0 7 7 0 0 1 14 0z"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
               </div>
-
-              <div class="stack-connector"></div>
-
-              <div class="stack-layer">
-                <div class="stack-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 17 7a4 4 0 0 1 1 7.9"/></svg>
-                </div>
-                <div class="stack-body">
-                  <span class="stack-tag">Layer 03 &middot; Customer Apps</span>
-                  <strong>Service &middot; Sales &middot; Marketing Cloud</strong>
-                  <span class="stack-meta">Customer-facing operations and engagement</span>
-                </div>
+              <div class="stack-body">
+                <span class="stack-tag">Layer 04 &middot; Agents</span>
+                <strong>Agentforce</strong>
+                <span class="stack-meta">Agentic AI and intelligent orchestration</span>
               </div>
+            </div>
 
-              <div class="stack-connector"></div>
+            <div class="stack-connector"></div>
 
-              <div class="stack-layer">
-                <div class="stack-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-                </div>
-                <div class="stack-body">
-                  <span class="stack-tag">Layer 02 &middot; Data &amp; Insight</span>
-                  <strong>Data Cloud &middot; Knowledge &middot; Agent Analytics</strong>
-                  <span class="stack-meta">Grounded intelligence and agent insight</span>
-                </div>
+            <div class="stack-layer sl-card">
+              <div class="stack-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a5 5 0 0 1-1-9.9A6 6 0 0 1 17 7a4 4 0 0 1 1 7.9"/></svg>
               </div>
-
-              <div class="stack-connector"></div>
-
-              <div class="stack-layer stack-layer--trust">
-                <div class="stack-icon">
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                </div>
-                <div class="stack-body">
-                  <span class="stack-tag">Layer 01 &middot; Trust</span>
-                  <strong>Einstein Trust Layer</strong>
-                  <span class="stack-meta">Salesforce's trusted AI framework</span>
-                </div>
+              <div class="stack-body">
+                <span class="stack-tag">Layer 03 &middot; Customer Apps</span>
+                <strong>Service &middot; Sales &middot; Marketing Cloud</strong>
+                <span class="stack-meta">Customer-facing operations and engagement</span>
               </div>
+            </div>
 
+            <div class="stack-connector"></div>
+
+            <div class="stack-layer sl-card">
+              <div class="stack-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+              </div>
+              <div class="stack-body">
+                <span class="stack-tag">Layer 02 &middot; Data &amp; Insight</span>
+                <strong>Data Cloud &middot; Knowledge &middot; Agent Analytics</strong>
+                <span class="stack-meta">Grounded intelligence and agent insight</span>
+              </div>
+            </div>
+
+            <div class="stack-connector"></div>
+
+            <div class="stack-layer stack-layer--trust sl-card">
+              <div class="stack-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+              </div>
+              <div class="stack-body">
+                <span class="stack-tag">Layer 01 &middot; Trust</span>
+                <strong>Einstein Trust Layer</strong>
+                <span class="stack-meta">Salesforce's trusted AI framework</span>
+              </div>
             </div>
           </div>
         </div>
@@ -312,10 +313,10 @@
 
     <section>
       <div class="container">
-        <div class="cta-banner reveal">
+        <div class="cta-banner" data-reveal="scale">
           <h2>Let's talk about your agentic agenda</h2>
           <p>Whether you're defining your AI vision, scoping a first Agentforce pilot, or scaling agents across a Gulf enterprise, we'd be glad to share how we can help.</p>
-          <a href="contact.html" class="btn btn-primary btn-arrow">Get in touch</a>
+          <a href="contact.html" class="btn btn-primary">Get in touch <span class="arrow">&rarr;</span></a>
         </div>
       </div>
     </section>
@@ -323,43 +324,21 @@
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="brand brand-footer">
-            <img src="assets/img/logo.png" alt="Tazkia Intelligence" class="brand-logo brand-logo-footer" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-grid';this.nextElementSibling.nextElementSibling.style.display='inline-flex';" />
-            <span class="brand-mark" aria-hidden="true" style="display:none;">T</span>
-            <span class="brand-name" style="display:none;">Tazkia<span>Intelligence</span></span>
-          </a>
-          <p style="margin-top:14px;">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
-        </div>
-        <div>
-          <h5>Company</h5>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Capabilities</h5>
-          <ul>
-            <li><a href="services.html">Agentforce for Service</a></li>
-            <li><a href="services.html">Agentforce for Sales</a></li>
-            <li><a href="services.html">AI Strategy &amp; Readiness</a></li>
-            <li><a href="services.html">Slack &amp; Workflow Integration</a></li>
-            <li><a href="services.html">Reporting &amp; Monitoring</a></li>
-          </ul>
-        </div>
-        <div>
-          <h5>Contact</h5>
-          <ul>
-            <li><a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a></li>
-            <li><span class="muted">UAE &middot; Saudi Arabia &middot; GCC</span></li>
-          </ul>
-        </div>
+      <div class="footer-main">
+        <a href="index.html" class="footer-logo" aria-label="Tazkia Intelligence - Home">
+          <img src="assets/img/logo.png" alt="Tazkia Intelligence" />
+        </a>
+        <p class="footer-tagline">An AI-native partner helping Gulf enterprises define their AI vision, establish governance, and deploy trusted Agentforce solutions.</p>
+        <nav class="footer-nav" aria-label="Footer">
+          <a href="services.html">Services</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="mailto:info@tazkiaintelligence.com">info@tazkiaintelligence.com</a>
+        </nav>
       </div>
       <div class="footer-bottom">
         <span>&copy; <span id="year">2026</span> Tazkia Intelligence. All rights reserved.</span>
+        <span class="footer-region">UAE &middot; Saudi Arabia &middot; GCC</span>
       </div>
     </div>
   </footer>
