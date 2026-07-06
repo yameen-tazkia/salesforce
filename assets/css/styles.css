@@ -364,13 +364,13 @@ body.has-pointer .cursor-glow { opacity: 1; }
 .brand { display: inline-flex; align-items: center; }
 
 .brand-logo-wrap {
-  height: 56px;
+  height: 66px;
   aspect-ratio: 990 / 560;
   overflow: hidden;
   transition: height 0.35s var(--ease), transform 0.3s var(--ease);
 }
 
-.nav.scrolled .brand-logo-wrap { height: 44px; }
+.nav.scrolled .brand-logo-wrap { height: 52px; }
 .brand:hover .brand-logo-wrap { transform: scale(1.04); }
 
 .brand-logo-wrap img {
@@ -378,6 +378,8 @@ body.has-pointer .cursor-glow { opacity: 1; }
   height: 100%;
   object-fit: cover;
   object-position: 50% 52.4%;
+  /* High-res source (1563px) keeps the mark crisp at every size. */
+  image-rendering: auto;
 }
 
 .nav-links {
@@ -519,7 +521,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
    Kept deliberately understated so the headline owns the hero. */
 .hero-logo {
   position: relative;
-  width: min(230px, 52vw);
+  width: min(272px, 58vw);
   aspect-ratio: 990 / 560;
   margin: 0 auto 26px;
 }
@@ -1567,7 +1569,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
 }
 
 .footer-logo {
-  height: 120px;
+  height: 146px;
   aspect-ratio: 990 / 560;
   overflow: hidden;
 }
@@ -2567,8 +2569,8 @@ body.has-pointer .cursor-glow { opacity: 1; }
 
   .nav-toggle { display: inline-flex; position: relative; z-index: 102; }
   .nav-cta { display: none; }
-  .brand-logo-wrap { height: 44px; }
-  .nav.scrolled .brand-logo-wrap { height: 40px; }
+  .brand-logo-wrap { height: 50px; }
+  .nav.scrolled .brand-logo-wrap { height: 46px; }
 
   .nav-links {
     position: absolute;
@@ -2607,7 +2609,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
   .nav-links a.active::after { display: none; }
 
   .hero { min-height: auto; padding-top: 28px; }
-  .hero-logo { width: min(190px, 46vw); margin-bottom: 20px; }
+  .hero-logo { width: min(224px, 54vw); margin-bottom: 20px; }
   .hero .lead { font-size: 1rem; margin-bottom: 30px; }
   .hero-actions { margin-bottom: 40px; gap: 10px; }
   .hero-actions .btn { width: 100%; max-width: 330px; }
@@ -2632,7 +2634,7 @@ body.has-pointer .cursor-glow { opacity: 1; }
   .field textarea,
   .field select { font-size: 16px; }
 
-  .footer-logo { height: 92px; }
+  .footer-logo { height: 112px; }
   .footer-bottom { flex-direction: column; text-align: center; }
 
   .marquee-track { animation-duration: 30s; }
