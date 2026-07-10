@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   USE_CASES,
   DEPARTMENTS,
@@ -170,9 +171,9 @@ export default function UseCaseLibrary() {
             <p className="font-semibold text-navy-950">No use cases match those filters.</p>
             <p className="mt-1 text-sm text-[var(--ink-secondary)]">
               Try clearing a filter — or{" "}
-              <a href="/contact" className="font-semibold text-emerald-700 hover:underline">
+              <Link href="/contact" className="font-semibold text-emerald-700 hover:underline">
                 tell us about your use case
-              </a>{" "}
+              </Link>{" "}
               and we'll scope it with you.
             </p>
           </div>

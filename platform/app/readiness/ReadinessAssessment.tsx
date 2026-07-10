@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import {
   READINESS_DIMENSIONS,
   ANSWER_SCALE,
@@ -157,12 +158,12 @@ export default function ReadinessAssessment() {
         </div>
 
         <div className="flex flex-wrap items-center gap-4">
-          <a
+          <Link
             href="/contact"
             className="rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-700"
           >
             Discuss your results with us
-          </a>
+          </Link>
           <button
             onClick={() => {
               setSubmitted(false);
