@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Tazkia Intelligence design tokens */
+  --emerald: #0c8259;
+  --emerald-deep: #0b674a;
+  --navy: #0a0f24;
+  --navy-soft: #151b38;
+  --teal: #0e94ae;
+  --gold: #b8860b;
+  --gold-soft: #d3ab4d;
+  --surface: #ffffff;
+  --surface-tint: #f7f9f8;
+  --ink: #10182b;
+  --ink-secondary: #46506b;
+  --ink-muted: #6d7691;
+  --hairline: #e4e8ee;
+
+  /* Chart series — validated (dataviz six checks, light surface) */
+  --series-1: #0c8259;
+  --series-2: #b8860b;
+  --series-3: #2f5fc4;
+  --series-4: #0e94ae;
+  --series-5: #7a5cd6;
+  --series-6: #c94f45;
+  --grid: #e4e8ee;
+  --axis: #b9c0cf;
+
+  --easing: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  color: var(--ink);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: rgba(12, 130, 89, 0.16);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
