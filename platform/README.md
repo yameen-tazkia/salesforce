@@ -6,6 +6,7 @@ methodology, AI expertise and service offerings through interactive tools:
 
 | Section | Route | What it does |
 |---|---|---|
+| **AI Navigator™ (flagship)** | `/ai-navigator` | Guided AI consultation: 46 signals across 10 chapters, real-time consultant insights, interactive priority matrix, and a full executive report (scores, radar, heat map, agent suitability, roadmaps, business value model, service recommendations) |
 | Home Dashboard | `/` | Executive landing: overview, insights, industry focus, animated KPIs |
 | Transformation Framework | `/framework` | Eight-phase interactive journey (Discover → Managed AI Services) |
 | AI Readiness Assessment | `/readiness` | 18-question assessment → radar profile, scorecards, summary, roadmap |
@@ -48,11 +49,15 @@ platform/
     layout/            # header, footer
     ui/                # cards, KPI widgets, progress bars, scorecards, tables, expandables
     charts/            # radar, line, bar, donut (SVG, interactive)
+    navigator/         # AI Navigator visuals: score dial, heat map, priority matrix,
+                       # roadmap timeline, journey rail
     diagrams/          # data-driven architecture diagrams
   lib/
     nav.ts             # navigation model
+    navigator/         # AI Navigator scoring & report engine (pure functions)
     data/              # all content: framework, industries, use cases, readiness,
-                       # opportunities, case studies, resources, demos, slack workflows
+                       # opportunities, case studies, resources, demos, slack workflows,
+                       # navigator (questions, insights, agents, score bands)
 ```
 
 ## Develop

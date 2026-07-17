@@ -7,6 +7,13 @@ export type NavItem = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
+    label: "AI Navigator™",
+    href: "/ai-navigator",
+    description:
+      "Our flagship guided consultation — scores, roadmap and business case",
+    group: "Advise",
+  },
+  {
     label: "Transformation Framework",
     href: "/framework",
     description: "Our eight-phase AI transformation methodology",

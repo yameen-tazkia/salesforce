@@ -56,10 +56,10 @@ export default function HomePage() {
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/readiness"
-              className="rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-emerald-500"
+              href="/ai-navigator"
+              className="rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/25 transition-all hover:-translate-y-0.5 hover:bg-emerald-500"
             >
-              Assess Your AI Readiness
+              Launch the AI Navigator™
             </Link>
             <Link
               href="/framework"
@@ -68,6 +68,11 @@ export default function HomePage() {
               Explore Our Framework
             </Link>
           </div>
+          <p className="mt-4 max-w-xl text-sm text-navy-200">
+            Our flagship guided consultation — fifteen minutes with a digital
+            senior advisor, ending in a board-ready AI transformation
+            blueprint.
+          </p>
           <p className="mt-10 text-xs font-medium uppercase tracking-[0.2em] text-navy-300">
             Primary markets · UAE · Saudi Arabia · Qatar &nbsp;&nbsp;|&nbsp;&nbsp;
             Expanding · Malaysia · Indonesia
