@@ -16,6 +16,13 @@ Pick the path that matches what you actually need right now:
 Paths 1 and 2 need no accounts or configuration beyond what you already
 have. Start there if you're unsure.
 
+> **⚠️ Is `taip/` on your default branch yet?**
+> If the pull request adding TAIP has not been merged, this folder exists
+> only on the branch `claude/tazkia-account-intelligence-platform-fh1vwl`.
+> Every path below defaults to `main` and will fail with *"no taip
+> directory"* until you either **merge the PR** or explicitly select that
+> branch. Each path notes how.
+
 ---
 
 ## Path 1 — Run locally
@@ -26,7 +33,12 @@ configure. Needs Node 18.17 or newer (`node -v` to check; install from
 
 ```bash
 git clone https://github.com/yameen-tazkia/salesforce.git
-cd salesforce/taip
+cd salesforce
+
+# Only needed if the TAIP pull request hasn't been merged into main yet:
+git checkout claude/tazkia-account-intelligence-platform-fh1vwl
+
+cd taip
 npm install
 npm run dev
 ```
@@ -36,6 +48,9 @@ Open <http://localhost:3100> and sign in with `amira@tazkia.internal` /
 
 That's it — no session secret needed for local development.
 
+If `cd taip` fails with *"No such file or directory"*, you're on a branch
+that doesn't have it — run the `git checkout` line above.
+
 ---
 
 ## Path 2 — GitHub Codespaces (nothing installed on your machine)
@@ -44,15 +59,29 @@ Runs the whole thing in your browser, on GitHub's infrastructure. Useful
 if Node won't install locally or you're on a locked-down laptop.
 
 1. Go to <https://github.com/yameen-tazkia/salesforce>.
-2. Click **Code** → **Codespaces** tab → **Create codespace on main**.
-3. Wait ~2 minutes. Dependencies install automatically (`.devcontainer/`
+2. **If the TAIP pull request isn't merged yet**, switch branch first:
+   use the branch dropdown (it says `main`) and pick
+   `claude/tazkia-account-intelligence-platform-fh1vwl`. Skip this once
+   it's merged.
+3. Click **Code** → **Codespaces** tab → **Create codespace on
+   \<current branch\>**.
+4. Wait ~2 minutes. Dependencies install automatically (`.devcontainer/`
    handles it).
-4. In the terminal at the bottom, run:
+5. In the terminal at the bottom, run:
    ```bash
    cd taip && npm run dev
    ```
-5. A popup offers to open the forwarded port — click it. TAIP opens in a
+6. A popup offers to open the forwarded port — click it. TAIP opens in a
    browser tab.
+
+Already created a codespace on the wrong branch? You don't need a new
+one — just run this in its terminal:
+
+```bash
+git fetch origin claude/tazkia-account-intelligence-platform-fh1vwl
+git checkout claude/tazkia-account-intelligence-platform-fh1vwl
+cd taip && npm install && npm run dev
+```
 
 To share with a colleague: open the **Ports** panel, right-click port
 3100 → *Port Visibility* → *Organization*. Codespaces sleep when idle, so
@@ -69,9 +98,13 @@ there's no secret for you to create or paste.
 1. Sign up at <https://render.com> with your GitHub account.
 2. Click **New** → **Blueprint**.
 3. Select the **`yameen-tazkia/salesforce`** repository.
-4. Render shows a service called **taip** read from `render.yaml`.
+4. **Set the branch.** Render defaults to `main`; if the TAIP pull
+   request isn't merged, change it to
+   `claude/tazkia-account-intelligence-platform-fh1vwl` or Render won't
+   find `render.yaml`.
+5. Render shows a service called **taip** read from `render.yaml`.
    Click **Apply**.
-5. Wait ~5 minutes for the first build. You'll get a URL like
+6. Wait ~5 minutes for the first build. You'll get a URL like
    `taip.onrender.com`.
 
 Optional: add `HUNTER_API_KEY` under the service's *Environment* tab to
