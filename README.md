@@ -6,6 +6,17 @@ trusted Agentforce solutions that deliver measurable business outcomes.
 Built with vanilla HTML, CSS, and JavaScript - no build step, no
 framework, no JS dependencies.
 
+This repository also contains:
+
+- **`platform/`** — the interactive Tazkia Intelligence Platform (Next.js),
+  the public pre-sales tool suite. See `platform/README.md`.
+- **`taip/`** — the **Tazkia Account Intelligence Platform (TAIP)**, an
+  internal Next.js application for identifying and researching Salesforce &
+  Agentforce opportunities across the GCC: evidence-based Salesforce
+  confidence scoring, product detection, AI-readiness estimation,
+  stakeholder mapping, outreach briefings and executive reports.
+  See `taip/README.md`.
+
 ## Project structure
 
 ```

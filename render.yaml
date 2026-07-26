@@ -1,0 +1,26 @@
+# Render blueprint for TAIP (the internal Account Intelligence Platform).
+# Render reads this file from the repository root; `rootDir` scopes the
+# service to the taip/ folder. See taip/DEPLOYMENT.md.
+
+services:
+  - type: web
+    name: taip
+    runtime: node
+    rootDir: taip
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm run start
+    healthCheckPath: /login
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      # Render generates a strong random value on first deploy and keeps it
+      # stable across future deploys — no manual secret handling needed.
+      - key: TAIP_SESSION_SECRET
+        generateValue: true
+      # Optional: enables live Hunter.io contact enrichment.
+      - key: HUNTER_API_KEY
+        sync: false
