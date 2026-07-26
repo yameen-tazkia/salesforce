@@ -1,0 +1,48 @@
+name: TAIP CI
+
+# Build + typecheck the internal Account Intelligence Platform.
+# Runs on any change under taip/ — no secrets or setup required.
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "taip/**"
+      - ".github/workflows/taip-ci.yml"
+  pull_request:
+    paths:
+      - "taip/**"
+      - ".github/workflows/taip-ci.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: taip-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Typecheck & build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: taip/package-lock.json
+
+      - name: Install dependencies
+        working-directory: taip
+        run: npm ci
+
+      - name: Typecheck
+        working-directory: taip
+        run: npm run typecheck
+
+      - name: Build
+        working-directory: taip
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
+        run: npm run build
