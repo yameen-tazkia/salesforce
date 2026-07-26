@@ -1,141 +1,166 @@
-# Deploying TAIP
+# Running & deploying TAIP
 
-TAIP is an **internal** application. It has login, API routes and
-middleware, so it needs a Node server — it **cannot** be published to
-GitHub Pages the way the public `platform/` site is.
+TAIP is an **internal** application with login, API routes and middleware,
+so it needs a Node server. It **cannot** be published to GitHub Pages the
+way the public `platform/` site is.
 
-Two supported paths:
+Pick the path that matches what you actually need right now:
 
-| Path | Best when | Effort |
-|---|---|---|
-| **A · Vercel** | You want it live for the team today | ~10 min, no ops |
-| **B · Docker** | Account intelligence must stay on your own infrastructure | ~30 min, needs a host |
+| # | Path | Best when | Effort | Cost |
+|---|---|---|---|---|
+| 1 | **Run locally** | You want to see it working today | 3 min | Free |
+| 2 | **GitHub Codespaces** | You don't want to install anything | 5 min | Free tier |
+| 3 | **Render** | The team needs a shared URL | 10 min | Free tier |
+| 4 | **Docker** | Data must stay on your own infrastructure | 30 min | Your host |
 
-Whichever you choose, do **Step 0** first.
+Paths 1 and 2 need no accounts or configuration beyond what you already
+have. Start there if you're unsure.
 
 ---
 
-## Step 0 — Generate the session secret (required for both)
+## Path 1 — Run locally
 
-TAIP signs login sessions with `TAIP_SESSION_SECRET`. Without it, the app
-falls back to a well-known development value and sessions could be forged.
-
-Generate one:
+The most reliable option: no hosting account, no build service, nothing to
+configure. Needs Node 18.17 or newer (`node -v` to check; install from
+<https://nodejs.org> if missing).
 
 ```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+git clone https://github.com/yameen-tazkia/salesforce.git
+cd salesforce/taip
+npm install
+npm run dev
 ```
 
-Copy the output somewhere safe (a password manager). **Never commit it** —
-you'll paste it into a hosting dashboard or a secret store below.
+Open <http://localhost:3100> and sign in with `amira@tazkia.internal` /
+`consult`.
+
+That's it — no session secret needed for local development.
 
 ---
 
-## Path A — Vercel
+## Path 2 — GitHub Codespaces (nothing installed on your machine)
 
-### A1. Import the repository
+Runs the whole thing in your browser, on GitHub's infrastructure. Useful
+if Node won't install locally or you're on a locked-down laptop.
 
-1. Go to <https://vercel.com/new> and sign in with GitHub.
-2. Find **`yameen-tazkia/salesforce`** and click **Import**.
-   (If it isn't listed, click *Adjust GitHub App Permissions* and grant
-   access to the repo.)
+1. Go to <https://github.com/yameen-tazkia/salesforce>.
+2. Click **Code** → **Codespaces** tab → **Create codespace on main**.
+3. Wait ~2 minutes. Dependencies install automatically (`.devcontainer/`
+   handles it).
+4. In the terminal at the bottom, run:
+   ```bash
+   cd taip && npm run dev
+   ```
+5. A popup offers to open the forwarded port — click it. TAIP opens in a
+   browser tab.
 
-### A2. Point Vercel at the `taip` folder — this is the important one
-
-On the configuration screen:
-
-- **Root Directory** → click *Edit* → select **`taip`**.
-  Vercel deploys the whole repo root by default, which would build the
-  wrong thing. This one setting is the difference between it working and
-  a confusing failure.
-- **Framework Preset** → should auto-detect as *Next.js*. Leave it.
-- Build and output settings → leave as-is (`vercel.json` handles them).
-
-### A3. Add environment variables
-
-Still on the configuration screen, expand **Environment Variables**:
-
-| Name | Value | Required |
-|---|---|---|
-| `TAIP_SESSION_SECRET` | the string from Step 0 | **Yes** |
-| `HUNTER_API_KEY` | your Hunter.io API key | No — enables live contact enrichment |
-
-Apply them to **Production**, **Preview** and **Development**.
-
-### A4. Deploy
-
-Click **Deploy** and wait ~2 minutes. You'll get a URL like
-`salesforce-taip.vercel.app`.
-
-### A5. Lock it down — do not skip this
-
-The URL is public by default. TAIP is internal, so restrict it:
-
-- **Vercel Pro/Enterprise:** Project → *Settings* → *Deployment Protection*
-  → enable **Vercel Authentication** (only your Vercel team members can
-  load it), or set a **Password**.
-- **Hobby plan:** deployment protection is limited. Either upgrade, or use
-  Path B, or treat the deployment as a short-lived demo and delete it after.
-
-The app already sends `X-Robots-Tag: noindex, nofollow` so search engines
-won't index it, but that is not access control.
-
-### A6. Future deploys
-
-Vercel now rebuilds automatically on every push to `main` that touches
-`taip/`. Pull requests get their own preview URL.
+To share with a colleague: open the **Ports** panel, right-click port
+3100 → *Port Visibility* → *Organization*. Codespaces sleep when idle, so
+this suits demos rather than permanent hosting.
 
 ---
 
-## Path B — Docker on your own infrastructure
+## Path 3 — Render (shared URL for the team)
 
-Keeps all account intelligence inside your network.
+Render reads `render.yaml` from the repository root, so most settings are
+already filled in — including **auto-generating the session secret**, so
+there's no secret for you to create or paste.
 
-### B1. Build the image
+1. Sign up at <https://render.com> with your GitHub account.
+2. Click **New** → **Blueprint**.
+3. Select the **`yameen-tazkia/salesforce`** repository.
+4. Render shows a service called **taip** read from `render.yaml`.
+   Click **Apply**.
+5. Wait ~5 minutes for the first build. You'll get a URL like
+   `taip.onrender.com`.
+
+Optional: add `HUNTER_API_KEY` under the service's *Environment* tab to
+enable live contact enrichment.
+
+**Two things to know about the free tier:** the service sleeps after 15
+minutes idle (first request afterwards takes ~30 seconds to wake), and
+free services are publicly reachable by URL. For sustained internal use,
+upgrade to a paid instance and put it behind your IdP — or use Path 4.
+
+---
+
+## Path 4 — Docker, on your own infrastructure
+
+Keeps all account intelligence inside your network. The image is a
+multi-stage Next.js standalone build running as a non-root user.
+
+### Build and run anywhere
 
 ```bash
 cd taip
 docker build -t taip:latest .
-```
 
-### B2. Run it
-
-```bash
-docker run -d \
-  --name taip \
-  -p 3100:3100 \
-  -e TAIP_SESSION_SECRET="<the string from Step 0>" \
-  -e HUNTER_API_KEY="<optional>" \
+docker run -d --name taip -p 3100:3100 \
+  -e TAIP_SESSION_SECRET="$(node -e "console.log(require('crypto').randomBytes(32).toString('hex'))")" \
   --restart unless-stopped \
   taip:latest
 ```
 
-Open <http://localhost:3100> (or the host's address) to confirm it's up.
+### Google Cloud Run
 
-### B3. Put it behind HTTPS and your SSO
+Scales to zero, so you pay only for use, and it injects `PORT`
+automatically (the app honours it).
 
-Run it behind your reverse proxy (nginx, Traefik, Cloudflare Access,
-an internal load balancer). Two things matter:
+```bash
+cd taip
+gcloud run deploy taip \
+  --source . \
+  --region europe-west1 \
+  --no-allow-unauthenticated \
+  --set-env-vars TAIP_SESSION_SECRET="<your secret>"
+```
+
+`--no-allow-unauthenticated` restricts access to your Google Workspace
+identities — the right default for an internal tool.
+
+### Azure App Service
+
+```bash
+cd taip
+az acr build --registry <your-registry> --image taip:latest .
+az webapp create --resource-group <rg> --plan <plan> --name taip \
+  --deployment-container-image-name <your-registry>.azurecr.io/taip:latest
+az webapp config appsettings set --resource-group <rg> --name taip \
+  --settings TAIP_SESSION_SECRET="<your secret>"
+```
+
+### Behind your own reverse proxy
+
+Two things matter wherever you host it:
 
 - **TLS.** Session cookies are marked `Secure` in production, so the app
-  must be served over HTTPS or logins will not persist.
-- **Access control.** Restrict to your VPN/IdP. TAIP's own login is a
+  must be served over HTTPS or logins silently fail to persist.
+- **Access control.** Restrict to your VPN or IdP. TAIP's own login is a
   second layer, not a perimeter.
 
 ---
 
-## After deploying — two things to fix before real use
+## Environment variables
 
-Both are deliberate placeholders, flagged in `README.md`:
+| Name | Required | Purpose |
+|---|---|---|
+| `TAIP_SESSION_SECRET` | Production only | Signs session cookies. Without it, the app falls back to a known development value and sessions could be forged. Generate with `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"` |
+| `HUNTER_API_KEY` | No | Enables live Hunter.io contact enrichment |
+| `PORT` | No | Injected by most hosts; defaults to 3100 |
 
-1. **Replace the demo dataset.** The 22 accounts shipped in
+---
+
+## Before this holds real data
+
+Both are deliberate placeholders, also flagged in `README.md`:
+
+1. **Replace the demo dataset.** The 22 accounts in
    `data/seed/accounts.ts` are fictional. Anyone reading the dashboard
-   without that context will think Al Marjan Properties and Bank AlNukhba
-   are real prospects.
-2. **Replace demo credentials with SSO.** The five accounts in
-   `data/seed/users.ts` use hardcoded demo passwords. Swap
-   `modules/auth/service.ts` for your identity provider (OIDC) before the
-   platform holds anything sensitive. The session transport in
+   without that context will assume Al Marjan Properties and Bank
+   AlNukhba are real prospects.
+2. **Replace demo credentials with SSO.** `data/seed/users.ts` ships
+   hardcoded demo passwords. Swap `modules/auth/service.ts` for your
+   identity provider (OIDC); the session transport in
    `modules/auth/session.ts` can stay as-is.
 
 Until both are done, treat any deployment as a demo environment.
@@ -144,16 +169,21 @@ Until both are done, treat any deployment as a demo environment.
 
 ## Troubleshooting
 
-**Build fails on Vercel with "No Next.js version detected"**
-Root Directory isn't set to `taip` (Step A2).
+**Vercel: "No Next.js version detected"**
+Root Directory isn't set to `taip`. Edit it in project settings. (Vercel
+also needs `vercel.json`, which is in `taip/`.)
 
-**Logins don't persist / immediate redirect back to `/login`**
-The app isn't being served over HTTPS in production, so the `Secure`
-session cookie is dropped. Terminate TLS in front of it.
+**Host reports the app failed to start, or health checks time out**
+The platform is injecting a `PORT` the app must bind to. `npm run start`
+honours `PORT` and falls back to 3100 — make sure your start command is
+`npm run start` rather than a hardcoded `next start -p 3100`.
 
-**Enrichment page shows Hunter.io as "available" rather than "connected"**
+**Logins don't persist; you're bounced back to `/login`**
+The app isn't served over HTTPS in production, so the `Secure` session
+cookie is dropped. Terminate TLS in front of it.
+
+**Enrichment shows Hunter.io as "available" not "connected"**
 `HUNTER_API_KEY` isn't set in that environment. Expected until you add it.
 
-**GitHub Pages deployment broke**
-It didn't — `deploy-platform.yml` only triggers on `platform/**` and is
-untouched by TAIP.
+**Did this break the GitHub Pages site?**
+No. `deploy-platform.yml` triggers only on `platform/**` and is untouched.

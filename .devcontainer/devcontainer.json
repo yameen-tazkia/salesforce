@@ -1,0 +1,21 @@
+{
+  "name": "TAIP — Tazkia Account Intelligence Platform",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bookworm",
+  "postCreateCommand": "cd taip && npm install",
+  "forwardPorts": [3100],
+  "portsAttributes": {
+    "3100": {
+      "label": "TAIP",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss"
+      ]
+    }
+  }
+}
